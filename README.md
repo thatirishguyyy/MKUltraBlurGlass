@@ -1,6 +1,6 @@
 # MKUltraBlurGlass
 
-Windows title-bar effects, based on DWMBlurGlass 2.3.1. This personal maintenance fork adds focused fixes, English documentation, a Final Fantasy inspired blue interface, menu-click sounds, and a small uninstaller.
+Windows title-bar effects, based on DWMBlurGlass 2.3.1. This personal maintenance fork adds focused fixes, English documentation, a nice interface, menu-click sounds, and a small uninstaller.
 
 **Created from the original work of Maplespe.** Rendering research and contributions by ALTaleX531 and other upstream contributors made this fork possible. See [credits](CREDITS.md) and the [original project](https://github.com/Maplespe/DWMBlurGlass).
 
