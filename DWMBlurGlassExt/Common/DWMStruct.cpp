@@ -224,9 +224,15 @@ namespace MDWMBlurGlassExt::DWM
 		{
 			darkMode = (reinterpret_cast<BYTE const*>(this)[669] & 4) != 0;
 		}
-		else
-		{
-			darkMode = (reinterpret_cast<BYTE const*>(this)[677] & 4) != 0; // ok with build 26020
+		else if (os::buildNumber >= 26200 ||
+            (os::buildNumber >= 26100 && os::ubrNumber >= 7171))
+        {
+            // Layout used by upstream 2.3.2b3 on current 24H2/25H2 builds.
+            darkMode = (reinterpret_cast<BYTE const*>(this)[741] & 4) != 0;
+        }
+        else
+        {
+            darkMode = (reinterpret_cast<BYTE const*>(this)[677] & 4) != 0; // ok with build 26020
 		}
 
 		return darkMode;

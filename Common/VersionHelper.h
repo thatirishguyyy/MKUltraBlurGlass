@@ -193,6 +193,7 @@ namespace MDWMBlurGlass
 	namespace os
 	{
 		extern const ULONG buildNumber;
+		extern const ULONG ubrNumber;
 		extern const ULONG minorVersion;
 		extern const ULONG majorVersion;
 		extern const NT_PRODUCT_TYPE productType;

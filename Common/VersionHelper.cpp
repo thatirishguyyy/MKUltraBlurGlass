@@ -29,6 +29,15 @@ namespace MDWMBlurGlass
 	namespace os
 	{
 		const ULONG buildNumber = Utils::get_kernel_shared_info()->NtBuildNumber;
+        const ULONG ubrNumber = []() -> ULONG {
+            DWORD value = 0;
+            DWORD size = sizeof(value);
+            if (RegGetValueW(HKEY_LOCAL_MACHINE,
+                L"SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion", L"UBR",
+                RRF_RT_REG_DWORD | RRF_SUBKEY_WOW6464KEY, nullptr, &value, &size) != ERROR_SUCCESS)
+                return 0;
+            return value;
+        }();
 		const ULONG minorVersion = Utils::get_kernel_shared_info()->NtMinorVersion;
 		const ULONG majorVersion = Utils::get_kernel_shared_info()->NtMajorVersion;
 		const NT_PRODUCT_TYPE productType = Utils::get_kernel_shared_info()->NtProductType;

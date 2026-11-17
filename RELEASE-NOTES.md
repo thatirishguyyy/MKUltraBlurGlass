@@ -1,3 +1,28 @@
+# MKUltraBlurGlass 0.1.1
+
+**One download:** `MKUltraBlurGlass-0.1.1.zip` includes the application, matching extension, runtime assets and uninstaller. The corresponding-source archive is optional for developers.
+
+## Fix
+
+Correct inherited dark-mode detection on current Windows 11 builds. Previously, Light-tab colors could affect dark windows while Dark-tab colors had no visible effect. The fork now uses the updated CWindowData dark-mode field identified in upstream 2.3.2b3, with build/revision gating that preserves older layouts. Credit to Maplespe and upstream contributors for the updated layout.
+
+## Verification
+
+On Windows 11 25H2 build 26200.9974, the owner confirmed that Dark colors now work and simultaneous explicit LIGHT/DARK test windows independently follow their matching active/inactive settings. Windows attribute calls also successfully read back the two requested modes.
+
+The new detection fixture passes 8,704 checks in both unoptimized and optimized modes; original code fails 1,280 checks. The existing 320 rendering regression checks per mode also pass. Both x64 application binaries build. The included uninstaller is unchanged from 0.1.0 and retains its 56 passing checks and earlier live lifecycle validation. Existing conversion warnings remain.
+
+Reboot persistence was validated for 0.1.0, but has not been repeated specifically for this patch. Compatibility claims remain limited to tested configurations. The owner separately reported a color-picker commit/selector issue; reproduction is pending and that behavior is unchanged. See KNOWN-ISSUES.md.
+
+## Install or update
+
+Extract the complete ZIP outside your user profile. To switch copies, uninstall the currently registered host and close its GUI before installing this copy. Keep old settings if desired. Download matching symbols on Symbol, then Install on General. The DarkModeTest copy uses this same rendering fix but is not the final version-labeled package.
+
+Original project and credits: https://github.com/Maplespe/DWMBlurGlass
+Fork: https://github.com/thatirishguyyy/MKUltraBlurGlass
+
+---
+
 # MKUltraBlurGlass 0.1.0
 
 A personal maintenance fork of DWMBlurGlass 2.3.1, created by Maplespe, with rendering contributions by ALTaleX531 and other upstream contributors. Maintained by thatirishguyyy.
