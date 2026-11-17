@@ -1,8 +1,9 @@
 //{{NO_DEPENDENCIES}}
-// Microsoft Visual C++ 生成的包含文件。
-// 供 Resource.rc 使用
+// Generated resource definitions.
+// Generated resource definitions.
 //
 #define IDI_ICON1                       101
+#define IDR_MENU_CLICK                  2001
 
 // Next default values for new objects
 // 

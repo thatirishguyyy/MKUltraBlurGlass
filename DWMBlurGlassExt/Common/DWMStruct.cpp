@@ -863,7 +863,7 @@ namespace MDWMBlurGlassExt::DWM
 		return brush;
 	}
 
-	CRgnGeometryProxy* const& CTopLevelWindow::GetBorderGeometry() const
+	CRgnGeometryProxy* CTopLevelWindow::GetBorderGeometry() const
 	{
 		CRgnGeometryProxy* geometry{ nullptr };
 
@@ -899,7 +899,7 @@ namespace MDWMBlurGlassExt::DWM
 		return geometry;
 	}
 
-	CRgnGeometryProxy* const& CTopLevelWindow::GetTitlebarGeometry() const
+	CRgnGeometryProxy* CTopLevelWindow::GetTitlebarGeometry() const
 	{
 		CRgnGeometryProxy* const* geometry{ nullptr };
 
@@ -932,7 +932,7 @@ namespace MDWMBlurGlassExt::DWM
 			}
 		}
 
-		return *geometry;
+		return geometry ? *geometry : nullptr;
 	}
 
 	bool CTopLevelWindow::HasNonClientBackground(CWindowData* data)

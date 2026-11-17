@@ -67,7 +67,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
 	if(lpCmdLine && _wcsicmp(lpCmdLine, L"runhost") == 0)
 	{
-		HANDLE hObject = CreateMutexW(nullptr, FALSE, L"_DWMBlurGlass_host_");
+		HANDLE hObject = CreateMutexW(nullptr, FALSE, L"_MKUltraBlurGlass_host_");
 		if (GetLastError() == ERROR_ALREADY_EXISTS)
 		{
 			CloseHandle(hObject);
@@ -81,7 +81,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 		return 0;
 	}
 
-	HANDLE hObject = CreateMutexW(nullptr, FALSE, L"_DWMBlurGlass_");
+	HANDLE hObject = CreateMutexW(nullptr, FALSE, L"_MKUltraBlurGlass_");
 	if (GetLastError() == ERROR_ALREADY_EXISTS)
 	{
 		CloseHandle(hObject);
@@ -100,7 +100,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	}
 
 	auto context = engine.CreateWindowCtx({ 0,0,500,730 }, MiaoUI::MWindowType::NoTitleBar,
-		L"DWMBlurGlass " + MDWMBlurGlass::g_vernum, true, true, 0);
+		L"MKUltraBlurGlass " + MDWMBlurGlass::g_vernum, true, true, 0);
 	if(!context)
 	{
 		MessageBoxW(nullptr, MDWMBlurGlass::GetBaseLanguageString(L"inituifail1").c_str(), L"error", MB_ICONERROR);

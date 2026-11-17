@@ -116,7 +116,7 @@ namespace Mui
 		colorRc.left = colorRc.right + offset;
 		colorRc.right = param->destRect->right;
 
-		brush->SetColor(IsEnabled() ? M_Black : M_RGBA(130, 130, 130, 255));
+		brush->SetColor(IsEnabled() ? M_RGBA(243, 246, 255, 255) : M_RGBA(142, 167, 210, 255));
 
 		std::wstring colorstr = showalpha ? L"RGBA(" : L"RGB(";
 		colorstr += std::to_wstring(M_GetRValue(curColor)) + L"," + std::to_wstring(M_GetGValue(curColor))

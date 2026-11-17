@@ -1,0 +1,185 @@
+#include <cstdio>
+#include <cstdint>
+#include <functional>
+#include <initializer_list>
+
+using HRESULT = long;
+using DWORD64 = unsigned long long;
+using COLORREF = unsigned long;
+using HWND = std::uintptr_t;
+constexpr HRESULT S_OK = 0;
+constexpr int ACCENT_DISABLED = 0;
+#define SUCCEEDED(hr) ((hr) >= 0)
+unsigned char GetRValue(COLORREF c) { return static_cast<unsigned char>(c); }
+unsigned char GetGValue(COLORREF c) { return static_cast<unsigned char>(c >> 8); }
+unsigned char GetBValue(COLORREF c) { return static_cast<unsigned char>(c >> 16); }
+
+int checks = 0, failures = 0;
+void check(bool condition, const char* description) {
+    ++checks;
+    if (!condition) { ++failures; std::printf("FAIL: %s\n", description); }
+}
+namespace DWM {
+union GpCC {
+    struct { unsigned char b, g, r, a; };
+    unsigned long argb;
+};
+}
+struct AccentPolicy { int nAccentState = 7; };
+struct CWindowData {
+    bool dark = false, visible = true;
+    HWND hwnd = 100;
+    int darkReads = 0;
+    AccentPolicy policy;
+    bool IsUsingDarkMode() { ++darkReads; return dark; }
+    bool IsWindowVisibleAndUncloaked() { return visible; }
+    HWND GetHWND() { return hwnd; }
+    AccentPolicy* GetAccentPolicy() { return &policy; }
+};
+enum class CompositedBackdropKind { Legacy, Accent };
+struct CTopLevelWindow {
+    CWindowData* data = nullptr;
+    bool allowed = true, minimized = false;
+    CompositedBackdropKind kind = CompositedBackdropKind::Legacy;
+    CWindowData* GetData() { return data; }
+    bool IsTrullyMinimized() { return minimized; }
+};
+struct Config {
+    COLORREF activeBlendColor = 0x61443322, inactiveBlendColor = 0x72554433;
+    COLORREF activeBlendColorDark = 0x83665544, inactiveBlendColorDark = 0x94776655;
+    bool useAccentColor = false;
+} g_configData;
+CWindowData* g_windowData = nullptr;
+thread_local HWND g_window = 0;
+HWND foreground = 100;
+HWND GetForegroundWindow() { return foreground; }
+COLORREF g_accentColor = 0xFACCBB11;
+bool IsBackdropAllowed(CTopLevelWindow* w) { return w->allowed; }
+CompositedBackdropKind GetActualBackdropKind(CTopLevelWindow* w) { return w->kind; }
+enum class handling_type { skip };
+struct Dispatcher {
+    int calls = 0, skipCalls = 0;
+    std::function<HRESULT(CTopLevelWindow*)> callback;
+    HRESULT call_org(CTopLevelWindow* w) { ++calls; return callback(w); }
+    void modify_handle_type_for_temporary(handling_type) { ++skipCalls; }
+} g_CTopLevelWindow_ValidateVisual_HookDispatcher;
+int backdropCalls = 0, trimCalls = 0;
+bool provideBackdrop = true;
+CWindowData* expectedContext = nullptr;
+struct Backdrop {
+    void ValidateVisual() {
+        ++backdropCalls;
+        check(g_windowData == expectedContext, "context remains active during backdrop validation");
+    }
+} backdrop;
+struct CVisualManager {
+    static void Trim(CTopLevelWindow*) { ++trimCalls; }
+    static Backdrop* GetOrCreate(CTopLevelWindow*) { return provideBackdrop ? &backdrop : nullptr; }
+};
+constexpr unsigned long originalColor = 0x12345678;
+constexpr DWORD64 originalReturn = 0x13579BDF5ULL;
+int colorCalls = 0;
+DWM::GpCC secondary{};
+DWORD64 callOriginalColor(DWM::GpCC* a1, DWM::GpCC* a2, float a3, int a4) {
+    ++colorCalls;
+    check(a2 == &secondary && a3 == 3.5f && a4 == 7, "original color arguments preserved");
+    a1->argb = originalColor;
+    return originalReturn;
+}
+struct Win10Original {
+    DWORD64 call_org(DWM::GpCC* a1, DWM::GpCC* a2, float a3, char a4) {
+        return callOriginalColor(a1, a2, a3, a4);
+    }
+} g_funCGlassColorizationParameters_AdjustWindowColorization_Win10;
+struct Win11Original {
+    DWORD64 call_org(DWM::GpCC* a1, DWM::GpCC* a2, float a3, short a4) {
+        return callOriginalColor(a1, a2, a3, a4);
+    }
+} g_funCGlassColorizationParameters_AdjustWindowColorization_Win11;
+
+// INSERT PRODUCTION FUNCTIONS
+
+DWORD64 adjust(bool win11, DWM::GpCC& color) {
+    return win11 ? CGlassColorizationParameters_AdjustWindowColorization_Win11(&color, &secondary, 3.5f, 7)
+                 : CGlassColorizationParameters_AdjustWindowColorization_Win10(&color, &secondary, 3.5f, 7);
+}
+void checkUnscopedColors() {
+    g_windowData = nullptr;
+    for (bool win11 : {false, true}) for (bool accent : {false, true}) for (bool active : {false, true}) {
+        g_configData.useAccentColor = accent;
+        g_window = active ? foreground : foreground + 1;
+        DWM::GpCC color{};
+        int before = colorCalls;
+        check(adjust(win11, color) == originalReturn, "unscoped original return preserved");
+        check(color.argb == originalColor, "unscoped original color preserved");
+        check(colorCalls == before + 1, "unscoped original called once");
+    }
+}
+void checkConfiguredColors() {
+    struct Fixture { bool dark, active; unsigned char r, g, b, a; };
+    const Fixture fixtures[] = {
+        {false,true,0x22,0x33,0x44,0x61}, {false,false,0x33,0x44,0x55,0x72},
+        {true,true,0x44,0x55,0x66,0x83}, {true,false,0x55,0x66,0x77,0x94}
+    };
+    CWindowData data;
+    for (bool win11 : {false, true}) for (bool accent : {false, true}) for (const auto& f : fixtures) {
+        data.dark = f.dark; data.darkReads = 0;
+        g_windowData = &data;
+        g_window = f.active ? foreground : foreground + 1;
+        g_configData.useAccentColor = accent;
+        DWM::GpCC color{};
+        check(adjust(win11, color) == originalReturn, "scoped original return preserved");
+        check(color.r == (accent ? 0x11 : f.r) && color.g == (accent ? 0xBB : f.g)
+              && color.b == (accent ? 0xCC : f.b), "configured RGB preserved");
+        check(color.a == (win11 ? f.a : 255), "existing alpha behavior preserved");
+        check(data.darkReads == 1, "valid context determines dark mode");
+    }
+}
+void checkValidationScope() {
+    CWindowData data, stale;
+    CTopLevelWindow window;
+    window.data = &data;
+    for (int reason : {0,1,2,3}) {
+        window.allowed = reason != 0;
+        window.data = reason == 1 ? nullptr : &data;
+        data.visible = reason != 2;
+        window.minimized = reason == 3;
+        g_windowData = &stale;
+        int calls = g_CTopLevelWindow_ValidateVisual_HookDispatcher.calls;
+        int trims = trimCalls;
+        check(CTopLevelWindow_ValidateVisual(&window) == S_OK, "early return preserved");
+        check(g_windowData == nullptr, "early return clears stale context");
+        check(g_CTopLevelWindow_ValidateVisual_HookDispatcher.calls == calls, "early return skips original validation");
+        check(trimCalls == trims + (reason ? 1 : 0), "existing trim behavior preserved");
+    }
+    window.allowed = true; window.data = &data; data.visible = true; window.minimized = false;
+    for (bool accent : {false, true}) for (bool withBackdrop : {false, true}) for (HRESULT result : {0L,1L,-1L}) {
+        window.kind = accent ? CompositedBackdropKind::Accent : CompositedBackdropKind::Legacy;
+        data.policy.nAccentState = 7;
+        provideBackdrop = withBackdrop;
+        expectedContext = &data;
+        int calls = g_CTopLevelWindow_ValidateVisual_HookDispatcher.calls;
+        int skips = g_CTopLevelWindow_ValidateVisual_HookDispatcher.skipCalls;
+        int backdrops = backdropCalls;
+        g_CTopLevelWindow_ValidateVisual_HookDispatcher.callback = [&](CTopLevelWindow* w) {
+            check(w == &window && g_windowData == &data && g_window == data.hwnd,
+                  "current context visible to original validation");
+            check(data.policy.nAccentState == (accent ? ACCENT_DISABLED : 7), "temporary accent suppression preserved");
+            return result;
+        };
+        g_windowData = &stale;
+        check(CTopLevelWindow_ValidateVisual(&window) == result, "validation result preserved");
+        check(g_windowData == nullptr, "completed validation clears context");
+        check(data.policy.nAccentState == 7, "accent policy restored");
+        check(g_CTopLevelWindow_ValidateVisual_HookDispatcher.calls == calls + 1, "original validation called once");
+        check(g_CTopLevelWindow_ValidateVisual_HookDispatcher.skipCalls == skips + 1, "hook dispatch behavior preserved");
+        check(backdropCalls == backdrops + (result >= 0 && withBackdrop ? 1 : 0), "backdrop update behavior preserved");
+    }
+}
+int main() {
+    checkUnscopedColors();
+    checkConfiguredColors();
+    checkValidationScope();
+    std::printf("%d checks, %d failures\n", checks, failures);
+    return failures ? 1 : 0;
+}

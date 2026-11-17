@@ -125,10 +125,41 @@ namespace MDWMBlurGlass
 		ui->Mgr()->LoadStyleList();
 		ui->LoadDefaultStyle();
 
+        ui->Mgr()->AddGeometryStyle(L"strife_button", MXMLCODE(
+<part><fill_round rc="0,0,0,0" value="4.0" color="22,72,189,255" /><draw_round rc="0,0,0,0" value="4.0" color="199,215,255,255" width="1" /></part>
+<part><fill_round rc="0,0,0,0" value="4.0" color="61,117,237,255" /><draw_round rc="0,0,0,0" value="4.0" color="199,215,255,255" width="1" /></part>
+<part><fill_round rc="0,0,0,0" value="4.0" color="23,60,158,255" /><draw_round rc="0,0,0,0" value="4.0" color="199,215,255,255" width="1" /></part>
+<part><fill_round rc="0,0,0,0" value="4.0" color="16,39,95,255" /><draw_round rc="0,0,0,0" value="4.0" color="199,215,255,255" width="1" /></part>
+        ));
+
+        ui->Mgr()->AddGeometryStyle(L"strife_edit", MXMLCODE(
+<part><fill_round rc="0,0,0,0" value="4.0" color="7,29,99,255" /><draw_round rc="0,0,0,0" value="4.0" color="199,215,255,255" width="1" /></part>
+<part><fill_round rc="0,0,0,0" value="4.0" color="7,29,99,255" /><draw_round rc="0,0,0,0" value="4.0" color="199,215,255,255" width="1" /></part>
+<part><fill_round rc="0,0,0,0" value="4.0" color="7,29,99,255" /><draw_round rc="0,0,0,0" value="4.0" color="199,215,255,255" width="1" /></part>
+<part><fill_round rc="0,0,0,0" value="4.0" color="7,29,99,255" /><draw_round rc="0,0,0,0" value="4.0" color="199,215,255,255" width="1" /></part>
+        ));
+
+        ui->Mgr()->AddGeometryStyle(L"strife_items", MXMLCODE(
+<part><fill_round rc="0,0,0,0" value="4.0" color="7,29,99,255" /><draw_round rc="0,0,0,0" value="4.0" color="199,215,255,255" width="1" /></part>
+<part><fill_round rc="0,0,0,0" value="4.0" color="22,72,189,255" /><draw_round rc="0,0,0,0" value="4.0" color="199,215,255,255" width="1" /></part>
+<part><fill_round rc="0,0,0,0" value="4.0" color="61,117,237,255" /><draw_round rc="0,0,0,0" value="4.0" color="199,215,255,255" width="1" /></part>
+<part><fill_round rc="0,0,0,0" value="4.0" color="7,29,99,255" /><draw_round rc="0,0,0,0" value="4.0" color="199,215,255,255" width="1" /></part>
+<part><fill_round rc="0,0,0,0" value="4.0" color="22,72,189,255" /><draw_round rc="0,0,0,0" value="4.0" color="199,215,255,255" width="1" /></part>
+<part><fill_round rc="0,0,0,0" value="4.0" color="61,117,237,255" /><draw_round rc="0,0,0,0" value="4.0" color="199,215,255,255" width="1" /></part>
+<part><fill_round rc="0,0,0,0" value="4.0" color="23,60,158,255" /><draw_round rc="0,0,0,0" value="4.0" color="199,215,255,255" width="1" /></part>
+<part><fill_round rc="0,0,0,0" value="4.0" color="16,39,95,255" /><draw_round rc="0,0,0,0" value="4.0" color="199,215,255,255" width="1" /></part>
+        ));
+
+
 		std::wstring_view xml = 
 		MXMLCODE(
-		<DefPropGroup control="UICheckBox" style="style_checkbox" minSize="16,16" />
-		<DefPropGroup control="UIComBox" dropIcon="dropIcon" />
+		<DefPropGroup control="UILabel" fontColor="243,246,255,255" urlColor="255,255,255,255" />
+        <DefPropGroup control="UIButton" style="strife_button" fontColor="255,255,255,255" />
+        <DefPropGroup control="UICheckBox" style="style_checkbox" minSize="16,16" fontColor="243,246,255,255" />
+        <DefPropGroup control="UIComBox" dropIcon="dropIcon" style="strife_button" listStyle="strife_edit" itemStyle="strife_items" fontColor="255,255,255,255" iFontColor="243,246,255,255" />
+        <DefPropGroup control="UIEditBox" style="strife_edit" fontColor="255,255,255,255" />
+        <DefPropGroup control="UINavBar" fontColor="187,212,255,255" fontHoverColor="255,255,255,255" fontPressColor="199,215,255,255" barColor="199,215,255,255" />
+        <DefPropGroup control="ColorDisplay" fontColor="243,246,255,255" />
 		);
 
 		if (!ui->AddDefPropGroup(xml, true))

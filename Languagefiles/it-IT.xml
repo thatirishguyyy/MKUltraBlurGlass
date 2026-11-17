@@ -68,7 +68,7 @@
 	<symstatus1>Valido</symstatus1>
 	<symdowning>Download in corso...</symdowning>
 	<symdownfail>Download fallito! Impossibile scaricare il file da "msdl.microsoft.com".</symdownfail>
-	<syminvalid>Il file dei simboli non è valido! Vai alla pagina "Simboli" del programma DWMBlurGlass per scaricare un nuovo file di simboli!</syminvalid>
+	<syminvalid>Il file dei simboli non è valido! Vai alla pagina "Simboli" del programma MKUltraBlurGlass per scaricare un nuovo file di simboli!</syminvalid>
 	<configfile>File di configurazione</configfile>
 	<import>Importa</import>
 	<export>Esporta</export>

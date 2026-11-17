@@ -69,7 +69,7 @@
 	<symstatus1>有效</symstatus1>
 	<symdowning>下载中...</symdowning>
 	<symdownfail>下载失败! 无法从"msdl.microsoft.com"下载文件</symdownfail>
-	<syminvalid>符号文件无效! 请转到DWMBlurGlass"符号文件"页面下载新的符号文件</syminvalid>
+	<syminvalid>符号文件无效! 请转到MKUltraBlurGlass"符号文件"页面下载新的符号文件</syminvalid>
 	<configfile>配置文件</configfile>
 	<import>导入</import>
 	<export>导出</export>

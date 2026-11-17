@@ -210,7 +210,7 @@ namespace MDWMBlurGlass
 			{
 				KillTimer(g_hostMsgWnd, g_timerID);
 				auto ret = MessageBoxW(nullptr, L"Checked that the process is suspected to have crashed abnormally and has stopped autoloading.",
-					L"DWMBlurGlass Error", MB_ICONERROR | MB_RETRYCANCEL);
+					L"MKUltraBlurGlass Error", MB_ICONERROR | MB_RETRYCANCEL);
 
 				iter->second.times = steady_clock::now().time_since_epoch();
 
@@ -229,7 +229,7 @@ namespace MDWMBlurGlass
 		std::wstring err;
 		if(!LoadDWMExtensionBase(err, id))
 		{
-			MessageBoxW(0, err.c_str(), L"DWMBlurGlass Error", MB_ICONERROR);
+			MessageBoxW(0, err.c_str(), L"MKUltraBlurGlass Error", MB_ICONERROR);
 		}
 	}
 
@@ -244,7 +244,7 @@ namespace MDWMBlurGlass
 					SendMessageW(msgwnd, WM_APP + 20, (WPARAM)MHostNotifyType::Shutdown, 0);
 
 				std::wstring err;
-				UnInject(id, Utils::GetCurrentDir() + L"\\DWMBlurGlassExt.dll", err);
+				UnInject(id, Utils::GetCurrentDir() + L"\\MKUltraBlurGlassExt.dll", err);
 			}
 		}
 		else if(message == WM_APP + 20 && MClientNotifyType::QueryTransparency == (MClientNotifyType)wParam)
@@ -288,7 +288,7 @@ namespace MDWMBlurGlass
 		PROCESS_INFORMATION processInformation = { nullptr };
 
 		wchar_t param[] = { L" runhost" };
-		if (CreateProcessW((Utils::GetCurrentDir() + L"\\DWMBlurGlass.exe").c_str(), param, nullptr,
+		if (CreateProcessW((Utils::GetCurrentDir() + L"\\MKUltraBlurGlass.exe").c_str(), param, nullptr,
 			nullptr, FALSE, NULL, nullptr, nullptr, &startupInfo, &processInformation))
 		{
 			CloseHandle(processInformation.hProcess);
@@ -300,7 +300,7 @@ namespace MDWMBlurGlass
 	{
 		SendMessageW(g_hostMsgWnd, WM_APP + 20, (WPARAM)1, 0);
 
-		if (auto pid = GetProcessId(L"dwmblurglass.exe"))
+		if (auto pid = GetProcessId(L"mkultrablurglass.exe"))
 		{
 			HANDLE hProcess = OpenProcess(PROCESS_ALL_ACCESS, FALSE, pid);
 			if (!hProcess)
@@ -336,7 +336,7 @@ namespace MDWMBlurGlass
 			err = GetBaseLanguageString(L"symloadfail");
 			return false;
 		}
-		const bool ret = Inject(GetProcessId(L"dwm.exe"), Utils::GetCurrentDir() + L"\\DWMBlurGlassExt.dll", err);
+		const bool ret = Inject(GetProcessId(L"dwm.exe"), Utils::GetCurrentDir() + L"\\MKUltraBlurGlassExt.dll", err);
 		if(ret)
 		{
 			auto enumproc = [](HWND hWnd, LPARAM _pid) -> BOOL

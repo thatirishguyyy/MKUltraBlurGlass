@@ -21,7 +21,7 @@
 	<install>Kur</install>
 	<uninstall>Kaldır</uninstall>
 	<installsucs>Kurulum başarılı!</installsucs>
-	<installsucs1>Kurulum başarılı! Fakat daha geçerli bir sembol dosyası indirmediniz, "Semboller" sayfasından indirerek DWMBlurGlass'ın çalışmasını sağlayabilirsiniz.</installsucs1>
+	<installsucs1>Kurulum başarılı! Fakat daha geçerli bir sembol dosyası indirmediniz, "Semboller" sayfasından indirerek MKUltraBlurGlass'ın çalışmasını sağlayabilirsiniz.</installsucs1>
 	<installfail>Kurulum başarısız! Hata iletisi: </installfail>
 	<uninstallsucs>Başarıyla kaldırıldı.</uninstallsucs>
 	<uninstallfail>Kaldırma başarısız! Hata iletisi: </uninstallfail>
@@ -65,7 +65,7 @@
 	<symstatus1>Geçerli</symstatus1>
 	<symdowning>İndiriliyor...</symdowning>
 	<symdownfail>İndirme başarısız! "msdl.microsoft.com" adresinden sembol dosyaları indirilemiyor.</symdownfail>
-	<syminvalid>Sembol dosyası geçersiz! Lütfen DWMBlurGlass programının "Semboller" sayfasından yeni bir sembol dosyası indirin.</syminvalid>
+	<syminvalid>Sembol dosyası geçersiz! Lütfen MKUltraBlurGlass programının "Semboller" sayfasından yeni bir sembol dosyası indirin.</syminvalid>
 	<configfile>Yapılandırma dosyası</configfile>
 	<import>İçe aktar</import>
 	<export>Dışa aktar</export>

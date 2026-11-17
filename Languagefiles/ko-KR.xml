@@ -21,7 +21,7 @@
 	<install>설치</install>
 	<uninstall>제거</uninstall>
 	<installsucs>설치에 성공했습니다!</installsucs>
-	<installsucs1>설치에 성공했습니다! 하지만 아직 유효한 심볼 파일을 다운로드하지 않았습니다. DWMBlurGlass가 작동하도록 하려면 "기호" 페이지에서 다운로드하십시오!</installsucs1>
+	<installsucs1>설치에 성공했습니다! 하지만 아직 유효한 심볼 파일을 다운로드하지 않았습니다. MKUltraBlurGlass가 작동하도록 하려면 "기호" 페이지에서 다운로드하십시오!</installsucs1>
 	<installfail>설치에 실패했습니다! 오류 메시지: </installfail>
 	<uninstallsucs>제거가 성공적으로 완료되었습니다.</uninstallsucs>
 	<uninstallfail>제거하지 못했습니다! 오류 메시지: </uninstallfail>
@@ -56,7 +56,7 @@
 	<symstatus1>유효한</symstatus1>
 	<symdowning>다운로드 중...</symdowning>
 	<symdownfail>다운로드에 실패했습니다! "msdl.microsoft.com "에서 기호 파일을 다운로드할 수 없습니다.</symdownfail>
-	<syminvalid>기호 파일이 잘못되었습니다! 새 심볼 파일을 다운로드하려면 DWMBlurGlass 프로그램의 "기호"페이지로 이동하십시오!</syminvalid>
+	<syminvalid>기호 파일이 잘못되었습니다! 새 심볼 파일을 다운로드하려면 MKUltraBlurGlass 프로그램의 "기호"페이지로 이동하십시오!</syminvalid>
 	<configfile>구성 파일</configfile>
 	<import>수입품</import>
 	<export>내보내기</export>

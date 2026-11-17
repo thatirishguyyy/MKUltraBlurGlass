@@ -21,7 +21,7 @@
 	<install>Instalar</install>
 	<uninstall>Desinstalar</uninstall>
 	<installsucs>¡Instalación exitosa!</installsucs>
-	<installsucs1>¡Instalación exitosa! ¡Pero aún no ha descargado los archivos de símbolos, descárguelos desde la página «Símbolos» para que DWMBlurGlass funcione correctamente!</installsucs1>
+	<installsucs1>¡Instalación exitosa! ¡Pero aún no ha descargado los archivos de símbolos, descárguelos desde la página «Símbolos» para que MKUltraBlurGlass funcione correctamente!</installsucs1>
 	<installfail>¡Error al instalar!\nMensaje de error: </installfail>
 	<uninstallsucs>Desinstalación exitosa.</uninstallsucs>
 	<uninstallfail>¡Error al desinstalar!\nMensaje de error: </uninstallfail>
@@ -68,7 +68,7 @@
 	<symstatus1>Válidos</symstatus1>
 	<symdowning>Descargando...</symdowning>
 	<symdownfail>¡Error al descargar! No se pueden descargar los archivos de símbolos desde msdl.microsoft.com.</symdownfail>
-	<syminvalid>¡Los archivos de símbolos no son válidos! Vaya a la página «Símbolos» del programa DWMBlurGlass para descargar nuevos archivos de símbolos.</syminvalid>
+	<syminvalid>¡Los archivos de símbolos no son válidos! Vaya a la página «Símbolos» del programa MKUltraBlurGlass para descargar nuevos archivos de símbolos.</syminvalid>
 	<configfile>Archivo de configuración</configfile>
 	<import>Importar</import>
 	<export>Exportar</export>

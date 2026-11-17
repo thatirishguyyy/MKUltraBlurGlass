@@ -33,7 +33,7 @@ namespace MDWMBlurGlass
 	using namespace Mui;
 	using namespace winrt;
 
-	auto constexpr g_extTaskName = L"DWMBlurGlass_Extend";
+	auto constexpr g_extTaskName = L"MKUltraBlurGlass_Extend";
 
 	void EnumFiles(std::wstring_view path, std::wstring_view append, std::vector<std::wstring>& fileList)
 	{
@@ -112,6 +112,28 @@ namespace MDWMBlurGlass
 		return ret;
 	};
 
+    bool TaskMatchesCurrentCopy(IRegisteredTask* task)
+    {
+        if (!task) return false;
+        com_ptr<ITaskDefinition> definition;
+        com_ptr<IActionCollection> actions;
+        com_ptr<IAction> action;
+        com_ptr<IExecAction> exec;
+        LONG count = 0;
+        if (FAILED(task->get_Definition(definition.put())) || FAILED(definition->get_Actions(actions.put()))
+            || FAILED(actions->get_Count(&count)) || count != 1 || FAILED(actions->get_Item(1, action.put()))
+            || FAILED(action->QueryInterface(IID_IExecAction, exec.put_void()))) return false;
+        BSTR path = nullptr, arguments = nullptr;
+        const HRESULT pathResult = exec->get_Path(&path);
+        const HRESULT argsResult = exec->get_Arguments(&arguments);
+        const auto expected = Utils::GetCurrentDir() + L"\\MKUltraBlurGlass.exe";
+        const bool matches = SUCCEEDED(pathResult) && SUCCEEDED(argsResult) && path && arguments
+            && _wcsicmp(path, expected.c_str()) == 0 && _wcsicmp(arguments, L"runhost") == 0;
+        SysFreeString(path);
+        SysFreeString(arguments);
+        return matches;
+    }
+
 	bool InstallScheduledTasks(std::wstring& errinfo)
 	{
 		//创建任务服务对象
@@ -140,6 +162,31 @@ namespace MDWMBlurGlass
 			return false;
 		}
 
+        com_ptr<IRegisteredTask> previous;
+        hr = rootFolder->GetTask(_bstr_t(L"DWMBlurGlass_Extend"), previous.put());
+        if (SUCCEEDED(hr))
+        {
+            errinfo = L"Uninstall the original DWMBlurGlass host before installing MKUltraBlurGlass.";
+            return false;
+        }
+        if (hr != HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND))
+        {
+            errinfo = L"The legacy startup task could not be inspected. No changes were made.";
+            return false;
+        }
+        previous = nullptr;
+        hr = rootFolder->GetTask(_bstr_t(g_extTaskName), previous.put());
+        if (SUCCEEDED(hr) && !TaskMatchesCurrentCopy(previous.get()))
+        {
+            errinfo = L"A different MKUltraBlurGlass copy or an unsupported task is registered. Uninstall that copy first.";
+            return false;
+        }
+        if (FAILED(hr) && hr != HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND))
+        {
+            errinfo = L"The existing startup task could not be inspected. No changes were made.";
+            return false;
+        }
+
 		//创建任务定义对象来创建任务
 		com_ptr<ITaskDefinition> taskDefinition = nullptr;
 		hr = taskService->NewTask(0, taskDefinition.put());
@@ -159,7 +206,7 @@ namespace MDWMBlurGlass
 		}
 
 		//设置作者信息
-		regInfo->put_Author((BSTR)L"DWMBlurGlass");
+		regInfo->put_Author((BSTR)L"MKUltraBlurGlass");
 
 		//设置登录类型和运行权限
 		com_ptr<IPrincipal> principal = nullptr;
@@ -211,7 +258,7 @@ namespace MDWMBlurGlass
 		}
 		
 		//设置程序路径和参数
-		pExecAction->put_Path((BSTR)(Utils::GetCurrentDir() + L"\\DWMBlurGlass.exe").c_str());
+		pExecAction->put_Path((BSTR)(Utils::GetCurrentDir() + L"\\MKUltraBlurGlass.exe").c_str());
 		pExecAction->put_Arguments((BSTR)L"runhost");
 		
 		//设置触发器信息，包括用户登录时触发
@@ -268,7 +315,7 @@ namespace MDWMBlurGlass
 		com_ptr<IRegisteredTask> task = nullptr;
 		hr = rootFolder->GetTask((BSTR)g_extTaskName, task.put());
 
-		return SUCCEEDED(hr);
+		return SUCCEEDED(hr) && TaskMatchesCurrentCopy(task.get());
 	}
 
 	bool DeleteScheduledTasks(std::wstring& errinfo)
@@ -442,7 +489,7 @@ namespace MDWMBlurGlass
 		{
 			if (_wcsicmp(pe.szExeFile, name.data()) == 0)
 			{
-				if (name == L"dwmblurglass.exe" && pe.th32ProcessID == GetCurrentProcessId())
+				if (name == L"mkultrablurglass.exe" && pe.th32ProcessID == GetCurrentProcessId())
 					continue;
 				return pe.th32ProcessID;
 			}

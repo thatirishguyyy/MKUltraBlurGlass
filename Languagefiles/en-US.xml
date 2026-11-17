@@ -21,7 +21,7 @@
 	<install>Install</install>
 	<uninstall>Uninstall</uninstall>
 	<installsucs>Installed successfully!</installsucs>
-	<installsucs1>Installed successfully! But you haven't downloaded valid symbol files yet, download it from the "Symbols" page to make DWMBlurGlass work.</installsucs1>
+	<installsucs1>Installed successfully! But you haven't downloaded valid symbol files yet, download it from the "Symbols" page to make MKUltraBlurGlass work.</installsucs1>
 	<installfail>Install failed! Error message: </installfail>
 	<uninstallsucs>Uninstall successfully.</uninstallsucs>
 	<uninstallfail>Uninstall failed! Error message: </uninstallfail>
@@ -69,7 +69,7 @@
 	<symstatus1>Valid</symstatus1>
 	<symdowning>Downloading...</symdowning>
 	<symdownfail>Download failed! Unable to download symbol files from "msdl.microsoft.com".</symdownfail>
-	<syminvalid>Symbol files are invalid, please go to the "Symbols" page of the DWMBlurGlass program to download new symbol files.</syminvalid>
+	<syminvalid>Symbol files are invalid, please go to the "Symbols" page of the MKUltraBlurGlass program to download new symbol files.</syminvalid>
 	<configfile>Configuration file</configfile>
 	<import>Import</import>
 	<export>Export</export>

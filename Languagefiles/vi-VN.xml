@@ -21,7 +21,7 @@
 	<install>Cài đặt</install>
 	<uninstall>Gỡ cài đặt</uninstall>
 	<installsucs>Đã cài đặt thành công!</installsucs>
-	<installsucs1>Đã cài đặt thành công! Nhưng bạn chưa tải các tập tin symbol hợp lệ, tải nó từ thẻ "Symbol" để làm cho DWMBlurGlass hoạt động.</installsucs1>
+	<installsucs1>Đã cài đặt thành công! Nhưng bạn chưa tải các tập tin symbol hợp lệ, tải nó từ thẻ "Symbol" để làm cho MKUltraBlurGlass hoạt động.</installsucs1>
 	<installfail>Cài đặt thất bại! Thông báo lỗi: </installfail>
 	<uninstallsucs>Gỡ cài đặt thành công.</uninstallsucs>
 	<uninstallfail>Gỡ cài đặt thất bại! Thông báo lỗi: </uninstallfail>
@@ -65,7 +65,7 @@
 	<symstatus1>Hợp lệ</symstatus1>
 	<symdowning>Đang tải về...</symdowning>
 	<symdownfail>Tải về thất bại! Không thể tải các tập tin symbol từ "msdl.microsoft.com".</symdownfail>
-	<syminvalid>Tập tin symbol không hợp lệ, vui lòng sang thẻ "Symbol" của chương trình DWMBlurGlass để tải các tập tin symbol mới.</syminvalid>
+	<syminvalid>Tập tin symbol không hợp lệ, vui lòng sang thẻ "Symbol" của chương trình MKUltraBlurGlass để tải các tập tin symbol mới.</syminvalid>
 	<configfile>Tập tin cấu hình</configfile>
 	<import>Nhập</import>
 	<export>Xuất</export>

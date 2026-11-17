@@ -68,7 +68,7 @@
 	<symstatus1>Корректный</symstatus1>
 	<symdowning>Загрузка...</symdowning>
 	<symdownfail>Не удалось скачать файл с сервера "msdl.microsoft.com".</symdownfail>
-	<syminvalid>Файлы символов недействительны. Чтобы загрузить новые файлы символов, перейдите на страницу "Символы" программы DWMBlurGlass.</syminvalid>
+	<syminvalid>Файлы символов недействительны. Чтобы загрузить новые файлы символов, перейдите на страницу "Символы" программы MKUltraBlurGlass.</syminvalid>
 	<configfile>Файл настройки</configfile>
 	<import>Импорт</import>
 	<export>Экспорт</export>

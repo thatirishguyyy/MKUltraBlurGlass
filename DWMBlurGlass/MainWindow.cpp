@@ -24,6 +24,7 @@
 #include <User/Mui_Engine.h>
 #include <dwmapi.h>
 #include "resource.h"
+#include "InterfaceTheme.h"
 #pragma comment(lib, "dwmapi.lib")
 
 namespace MDWMBlurGlass
@@ -59,7 +60,7 @@ namespace MDWMBlurGlass
 		SendMessageW(hWnd, WM_SETICON, ICON_SMALL, (LPARAM)hIcon);
 
 		UIBkgndStyle bgStyle;
-		bgStyle.bkgndColor = Color::M_RGBA(245, 241, 249, 255);
+		bgStyle.bkgndColor = Color::M_RGBA(6, 21, 78, 255);
 		root->SetBackground(bgStyle);
 
 		try
@@ -96,6 +97,16 @@ namespace MDWMBlurGlass
 
 	_m_result MainWindow_EventProc(MWindowCtx*, UINotifyEvent event, UIControl* control, _m_param param)
 	{
+        if (event == Event_Mouse_LClick && control->GetName() == L"menuSound")
+        {
+            InterfaceTheme::SetSoundEnabled(static_cast<Ctrl::UICheckBox*>(control)->GetSel());
+            InterfaceTheme::PlayClick();
+            return true;
+        }
+        const auto cls = control->GetClsName();
+        if ((event == Event_Mouse_LClick && (cls == L"UIButton" || cls == L"UICheckBox" || cls == L"UIComBox" || cls == L"ColorDisplay"))
+            || event == Event_NavBar_ItemChange || event == Event_Menu_ItemLClick)
+            InterfaceTheme::PlayClick();
 		if (g_colorDialog && g_colorDialog->EventProc(event, control, param))
 			return true;
 		if (g_mainPage && g_mainPage->EventProc(event, control, param))

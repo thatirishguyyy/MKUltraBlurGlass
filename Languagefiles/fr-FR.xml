@@ -56,7 +56,7 @@
 	<symstatus1>Valide</symstatus1>
 	<symdowning>Téléchargement...</symdowning>
 	<symdownfail>Téléchargement échoué ! Impossible de télécharger le fichier dans "msdl.microsoft.com".</symdownfail>
-	<syminvalid>Le fichier de symboles n’est pas valide ! Veuillez vous rendre sur la page "Symboles" du programme DWMBlurGlass pour télécharger un nouveau fichier de symboles !</syminvalid>
+	<syminvalid>Le fichier de symboles n’est pas valide ! Veuillez vous rendre sur la page "Symboles" du programme MKUltraBlurGlass pour télécharger un nouveau fichier de symboles !</syminvalid>
 	<configfile>Fichier de configuration</configfile>
 	<import>Importer</import>
 	<export>Exporter</export>

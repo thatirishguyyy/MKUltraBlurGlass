@@ -119,8 +119,8 @@ namespace MDWMBlurGlass
 		udwm
 	};
 
-	auto constexpr DWMBlurGlassNotifyClassName = L"MDWMBlurGlassExtNotify";
-	auto constexpr DWMBlurGlassHostNotifyClassName = L"MDWMBlurGlassHostNotify";
+	auto constexpr DWMBlurGlassNotifyClassName = L"MKUltraBlurGlassExtNotify";
+	auto constexpr DWMBlurGlassHostNotifyClassName = L"MKUltraBlurGlassHostNotify";
 
 	namespace RAIIHelper
 	{

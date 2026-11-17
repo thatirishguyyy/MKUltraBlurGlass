@@ -41,7 +41,7 @@ namespace MDWMBlurGlass
 		<PropGroup id="colorpicker_edit" limitText="3" number="true" inset="3,1,1,1" wordAutoSel="true" />
 
 		<UIControl name="colorpicker" bgColor="80,80,80,60" size="100%,100%" autoSize="false" align="Center" visible="false">
-			<UIControl bgColor="255,255,255,255" frameWidth="1" frameColor="222,222,222,255" frameRound="10" name="content"
+			<UIControl bgColor="16,47,144,255" frameWidth="1" frameColor="199,215,255,255" frameRound="10" name="content"
 			autoSize="false" size="453,342" align="Absolute" shadowColor="0,0,0,60" shadowOffset="0,30" shadowExtend="5" shadowRadius="35">
 				<UILabel text="#colorpicker_dlg_sel" pos="15,18" fontSize="14" />
 				<UIColorPicker autoSize="false" frame="15,45,250,250" frameWidth="1" frameColor="150,150,150,255" name="colorpicker_color" />

@@ -46,7 +46,7 @@
 	<symstatus1>Valid</symstatus1>
 	<symdowning>Mengunduh...</symdowning>
 	<symdownfail>Unduhan gagal! Tidak dapat mengunduh berkas dari "msdl.microsoft.com</symdownfail>
-	<syminvalid>Berkas simbol tidak valid! Mohon pergi ke halaman "Simbol" program DWMBlurGlass untuk mengunduh berkas simbol baru!</syminvalid>
+	<syminvalid>Berkas simbol tidak valid! Mohon pergi ke halaman "Simbol" program MKUltraBlurGlass untuk mengunduh berkas simbol baru!</syminvalid>
 	<import>Impor</import>
 	<export>Ekspor</export>
 	<restore>Kembalikan ke semula</restore>

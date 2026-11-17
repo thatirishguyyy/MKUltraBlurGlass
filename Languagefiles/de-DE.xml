@@ -65,7 +65,7 @@
 	<symstatus1>Gültig</symstatus1>
 	<symdowning>Wird heruntergeladen...</symdowning>
 	<symdownfail>Herunterladen fehlgeschlagen! Datei kann nicht von "msdl.microsoft.com" heruntergeladen werden.</symdownfail>
-	<syminvalid>Symboldatei ist ungültig! Bitte gehen Sie zur Seite "Symbole" des DWMBlurGlass-Programms, um eine neue Symboldatei herunterzuladen!</syminvalid>
+	<syminvalid>Symboldatei ist ungültig! Bitte gehen Sie zur Seite "Symbole" des MKUltraBlurGlass-Programms, um eine neue Symboldatei herunterzuladen!</syminvalid>
 	<configfile>Konfigurationsdatei</configfile>
 	<import>Importieren</import>
 	<export>Exportieren</export>

@@ -21,7 +21,7 @@
 	<install>インストール</install>
 	<uninstall>アンインストール</uninstall>
 	<installsucs>インストールに成功しました</installsucs>
-    <installsucs1>インストールに成功しました。ただし、有効なシンボルファイルをまだダウンロードしていません。DWMBlurGlass を動作させるには、「シンボル」ページからダウンロードしてください。</installsucs1>
+    <installsucs1>インストールに成功しました。ただし、有効なシンボルファイルをまだダウンロードしていません。MKUltraBlurGlass を動作させるには、「シンボル」ページからダウンロードしてください。</installsucs1>
 	<installfail>インストールに失敗しました。エラー: </installfail>
 	<uninstallsucs>アンインストールに成功成功しました</uninstallsucs>
 	<uninstallfail>アンインストールに失敗しました。エラー: </uninstallfail>

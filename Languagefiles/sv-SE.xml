@@ -1,4 +1,4 @@
-<?xml version="2.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <lang local="sv-SE" author="Vinyxdev">
 	<inituifail0>MiaoUI bibliotek Initialisering misslyckades! felkod: </inituifail0>
 	<inituifail1>Misslyckades med att skapa fönsterkontext!</inituifail1>
@@ -56,10 +56,10 @@
 	<symstatus1>Giltig</symstatus1>
 	<symdowning>Nedladdning...</symdowning>
 	<symdownfail>Nedladdning misslyckades! Det gick inte att ladda ner filen från "msdl.microsoft.com".</symdownfail>
-	<syminvalid>Symbolfilen är ogiltig! Gå till sidan "Symboler" i programmet DWMBlurGlass för att ladda ner en ny symbolfil!</syminvalid>
+	<syminvalid>Symbolfilen är ogiltig! Gå till sidan "Symboler" i programmet MKUltraBlurGlass för att ladda ner en ny symbolfil!</syminvalid>
 	<configfile>Konfigurationsfil</configfile>
-	<import>Import</Import>
-	<export>Export</Export>
+	<import>Import</import>
+	<export>Export</export>
 	<restore>Återställ standardvärdena</restore>
 	<importwarn>Import av en konfigurationsfil kommer att skriva över din befintliga konfiguration, fortsätt?</importwarn>
 	<restorecfg>Är du säker på att du vill återställa standardkonfigurationen?</restorecfg>

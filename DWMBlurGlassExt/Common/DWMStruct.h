@@ -491,8 +491,8 @@ namespace MDWMBlurGlassExt::DWM
 		bool IsNCBackgroundVisualsCloneAllAllowed();
 		CSolidColorLegacyMilBrushProxy* const* GetBorderMilBrush() const;
 
-		CRgnGeometryProxy* const& GetBorderGeometry() const;
-		CRgnGeometryProxy* const& GetTitlebarGeometry() const;
+		CRgnGeometryProxy* GetBorderGeometry() const;
+		CRgnGeometryProxy* GetTitlebarGeometry() const;
 
 		bool HasNonClientBackground(CWindowData* data = nullptr);
 
