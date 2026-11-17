@@ -12,7 +12,7 @@ Only one download is needed: `MKUltraBlurGlass-0.1.1.zip` includes both the appl
 
 Download the runtime ZIP from [Releases](https://github.com/thatirishguyyy/MKUltraBlurGlass/releases). The maintained branch is `mkultra/main`; `master` preserves the later upstream snapshot.
 
-Version 0.1.1 fixes inherited dark-mode detection on current Windows 11 builds. The owner confirmed that explicit Light and Dark windows now independently follow their matching active/inactive color settings. See [known issues](KNOWN-ISSUES.md) for the separately reported color-picker interaction.
+Version 0.1.1 fixes inherited dark-mode detection on current Windows 11 builds. Confirmed that explicit Light and Dark windows now independently follow their matching active/inactive color settings. See [known issues](KNOWN-ISSUES.md) for the separately reported color-picker interaction.
 
 ## Changes
 
