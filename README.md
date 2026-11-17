@@ -6,7 +6,7 @@ Windows title-bar effects, based on DWMBlurGlass 2.3.1. This personal maintenanc
 
 ## Status
 
-Version 0.1.1. Tested by the owner on Windows 11 25H2 build 26200.9974: matching symbol download, visible window blur, automatic startup after reboot, menu sound and its toggle, About layout, and install/uninstall/reinstall. Default uninstall preserved all 10 recorded program, settings and symbol files unchanged. These results apply to this configuration; other Windows builds and rendering methods have not been validated.
+Version 0.1.1. Tested on Windows 11 25H2 build 26200.9974: matching symbol download, visible window blur, automatic startup after reboot, menu sound and its toggle, About layout, and install/uninstall/reinstall. Default uninstall preserved all 10 recorded program, settings and symbol files unchanged. These results apply to this configuration; other Windows builds and rendering methods have not been validated.
 
 Only one download is needed: `MKUltraBlurGlass-0.1.1.zip` includes both the application and `MKUltraBlurGlassUninstall.exe`. The source archive is optional for developers.
 
