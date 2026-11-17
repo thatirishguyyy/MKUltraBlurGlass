@@ -211,7 +211,7 @@ namespace MDWMBlurGlass
                 <UILabel pos="0,8" text="DWMBlurGlass created by Maplespe." />
                 <UILabel pos="0,5" text="With rendering research and contributions by ALTaleX531." />
                 <UILabel pos="0,5" text="Thank you to the original authors and contributors." />
-                <UILabel pos="0,8" text="Fork maintained by thatirishguyyy." fontColor="187,212,255,255" hyperlink="true" url="https://github.com/thatirishguyyy/DWMBlurGlass" />
+                <UILabel pos="0,8" text="Fork maintained by thatirishguyyy." fontColor="187,212,255,255" hyperlink="true" url="https://github.com/thatirishguyyy/MKUltraBlurGlass" />
                 <UILabel pos="0,5" text="ALTaleX531" fontColor="187,212,255,255" hyperlink="true" url="https://github.com/ALTaleX531" />
                 <UILabel pos="0,5" text="Original DWMBlurGlass project - Maplespe" fontColor="187,212,255,255" hyperlink="true" url="https://github.com/Maplespe/DWMBlurGlass" />
                 <UICheckBox pos="0,14" name="menuSound" text="Menu sound" />

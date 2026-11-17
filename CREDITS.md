@@ -6,7 +6,7 @@ We also acknowledge **ALTaleX531** for rendering research, implementation work, 
 
 Original authorship, copyright notices, and the GNU LGPL v3-or-later terms are retained. The fork's name and interface do not imply that its changes or releases are endorsed by the original authors.
 
-This fork is maintained by **thatirishguyyy**: https://github.com/thatirishguyyy/DWMBlurGlass
+This fork is maintained by **thatirishguyyy**: https://github.com/thatirishguyyy/MKUltraBlurGlass
 
 ## Dependencies
 

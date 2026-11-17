@@ -9,8 +9,8 @@ The runtime baseline is official 2.3.1 commit 828f09503193aaadf2a00edcbcbadbf21b
 ## Git workflow
 
 ```powershell
-git clone https://github.com/thatirishguyyy/DWMBlurGlass.git
-cd DWMBlurGlass
+git clone https://github.com/thatirishguyyy/MKUltraBlurGlass.git
+cd MKUltraBlurGlass
 git remote add upstream https://github.com/Maplespe/DWMBlurGlass.git
 git fetch upstream
 git switch -c fix/describe-the-change
@@ -33,3 +33,7 @@ Review upstream commits before merging or cherry-picking them. Keep functional f
 Issue templates are in `.github/ISSUE_TEMPLATE`. GitHub currently reports issues disabled for this fork; enable them in repository settings if you want to accept reports. The existing issue workflow closes empty/template-only reports and is not a build or release pipeline.
 
 Original donation configuration points to upstream's `maplespe` account. It is not a donation destination for the fork owner.
+
+## Upstream updates
+
+Keep the GitHub fork connection and original attribution. Do not sync upstream changes directly into mkultra/main. Review candidate changes on a separate branch, run the relevant regression checks and builds, and complete appropriate live testing before merging. The upstream commits-behind count is not a release requirement.
