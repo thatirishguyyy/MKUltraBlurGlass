@@ -2,7 +2,7 @@
 
 ## Supported versions
 
-Security fixes target the latest published MKUltraBlurGlass release, currently 0.1.0. Older releases and development snapshots do not receive separate security backports. Support for this fork does not imply support for the original DWMBlurGlass project or other forks.
+Security fixes target the latest published MKUltraBlurGlass release. Older releases and development snapshots do not receive separate security backports. Support for this fork does not imply support for the original DWMBlurGlass project or other forks.
 
 ## Reporting a vulnerability
 
