@@ -17,4 +17,4 @@ This fork is maintained by **thatirishguyyy**: https://github.com/thatirishguyyy
 - VC-LTL: https://github.com/Chuyu-Team/VC-LTL5
 - Windows Implementation Libraries: https://github.com/microsoft/wil
 
-The blue interface follows the owner's Strife application palette. The menu-click asset was supplied by the owner; the original MP3 and a decoded PCM WAV are included in the source. The sound is embedded in the executables and can be muted. No background music was added.
+The blue interface follows a FF application palette. The menu-click asset was supplied by thatirishguyyy; the original MP3 and a decoded PCM WAV are included in the source. The sound is embedded in the executables and can be muted. No background music was added.
