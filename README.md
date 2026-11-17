@@ -22,7 +22,7 @@ Version 0.1.1 fixes inherited dark-mode detection on current Windows 11 builds. 
 - Handle absent title-bar geometry without dereferencing null.
 - Backport upstream's stale window-color context fix, commit 74945a1.
 - Use the MKUltraBlurGlass executable, DLL, startup-task and notification names consistently.
-- Match the owner's Strife blue palette, with an embedded Final Fantasy menu click and a Menu sound toggle.
+- FF style blue palette, with an embedded FF menu click and a Menu sound toggle.
 - Add a matching English uninstaller that keeps settings by default and recognizes both MKUltraBlurGlass and legacy DWMBlurGlass tasks.
 - Repair the Swedish language XML declaration and closing tags.
 
