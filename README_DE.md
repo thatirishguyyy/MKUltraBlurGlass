@@ -1,176 +1,38 @@
-# DWMBlurGlass
-Fügen Sie benutzerdefinierte Effekte zur Titelleiste des globalen Systems hinzu, unterstützt Windows 10 und Windows 11.
+# MKUltraBlurGlass
 
-给全局系统标题栏添加自定义效果，支持win10和win11
-#
-| [中文](/README_ZH.md) | [English](/README.md) | [italiano](/README_IT.md) | [français](/README_FR.md) | [Türkçe](/README_TR.md) | [español](/README_ES.md)
-This project uses [LGNU V3 license](/COPYING.LESSER).
+[English](README.md) · [Deutsch](README_DE.md) · [Español](README_ES.md) · [Français](README_FR.md) · [Italiano](README_IT.md) · [Português (Brasil)](README_PTBR.md) · [Türkçe](README_TR.md) · [Tiếng Việt](README_VI.md) · [简体中文](README_ZH.md)
 
-## !!! Laden Sie DWMBlurGlass nicht von irgendwo anders herunter!!!!
-> [!WARNING]
-> Wir haben festgestellt, dass jemand vorgibt, wir zu sein und DWMBlurGlass mit einem Schadcode-Implantat postet.
-> 
-> Um zu verhindern, dass so etwas noch einmal passiert, laden Sie die Software bitte nicht von inoffiziellen Adressen herunter!
-> 
-> **Wir haben auch keinen offiziellen Discord.**
-> 
-> Wir vertreiben ausschließlich Software auf [Github](https://github.com/Maplespe/DWMBlurGlass/releases), [Bilibili](https://space.bilibili.com/87195798) Und [winmoes](https://winmoes.com).
-> 
-> Außerdem werden alle neuen Versionen zum Testen zuerst in den Testzweig verschoben, anstatt Binärdateien im Voraus zu veröffentlichen.
+Eine persönliche Wartungs-Fork von DWMBlurGlass 2.3.1 für Effekte auf Windows-Titelleisten und Fensterrahmen. Gepflegt von **thatirishguyyy**.
 
-[![license](https://img.shields.io/github/license/Maplespe/DWMBlurGlass.svg)](https://www.gnu.org/licenses/lgpl-3.0.en.html)
-[![Github All Releases](https://img.shields.io/github/downloads/Maplespe/DWMBlurGlass/total.svg)](https://github.com/Maplespe/DWMBlurGlass/releases)
-[![GitHub release](https://img.shields.io/github/release/Maplespe/DWMBlurGlass.svg)](https://github.com/Maplespe/DWMBlurGlass/releases/latest)
-<img src="https://img.shields.io/badge/language-c++-F34B7D.svg"/>
-<img src="https://img.shields.io/github/last-commit/Maplespe/DWMBlurGlass.svg"/>  
+**Das Original stammt von Maplespe.** Vielen Dank an Maplespe, ALTaleX531 und alle Mitwirkenden und Übersetzer. Siehe [Danksagungen](CREDITS.md) und [Originalprojekt](https://github.com/Maplespe/DWMBlurGlass).
 
-## Katalog
-- [Effekte](#Effekte)
-- [Kompatibilität](#Kompatibilität)
-- [Galerie](#Galerie)
-- [Material-Effects](#material-effects)
-  - [Unschärfe](#blur)
-  - [Aero](#aero)
-  - [Acrylic](#acrylic)
-  - [Mica](#mica)
-  - [MicaAlt](#micaalt)
-- [Verwendung](#Verwendung)
-  - [Installieren](#Installieren)
-  - [Deinstallieren](#Deinstallieren)
-- [Sprachdateien](#Sprachdateien)
-- [Abhängigkeiten](#Abhängigkeiten)
+## Version und Download
 
-## Effekte
-* Fügt einen benutzerdefinierten Effekt zur Titelleiste des globalen Systems hinzu.
-* Anpassbarer globaler Unschärferadius oder nur Unschärferadius der Titelleiste.
-* Anpassbare Mischfarben für die Titelleiste.
-* Anpassbare Textfarbe für die Titelleiste.
-* Aeroreflexionen und Parallaxeneffekte sind verfügbar.
-* Stellen Sie die Höhe der Titelleistenschaltflächen im Windows 7-Stil wieder her.
-* Unterstützung zum Aktivieren des Unschärfeeffekts für Programme, die die alte Windows 7-API (DwmEnableBlurBehindWindow) verwenden.
-* Unterstützt die Effekte „Blur“, „Aero“, „Acrylic“ und „Mica (nur Win11)“.
-* Individuell anpassbare automatische Umschaltung zwischen Hell-/Dunkel-Farbmodus.
-* Die Unschärfemethoden „CustomBlur“, „AccentBlur“ und „SystemBackdrop“ sind verfügbar.
-* Theme-Unterstützung von Drittanbietern.
+**0.1.1** behebt die Erkennung des dunklen Fenstermodus auf aktuellen Windows-11-Builds. Helle und dunkle Fenster verwenden unabhängig voneinander ihre jeweiligen Farben für aktive und inaktive Fenster. Die Fork enthält außerdem Geometrie- und Farbkontextkorrekturen, eine blaue Oberfläche, einen abschaltbaren Menüklick unter About und einen englischen Deinstaller.
 
-![image](/Screenshot/001701.png)
-![image](/Screenshot/10307.png)
+Ein Download genügt: [MKUltraBlurGlass-0.1.1.zip](https://github.com/thatirishguyyy/MKUltraBlurGlass/releases/download/v0.1.1/MKUltraBlurGlass-0.1.1.zip) enthält Anwendung und `MKUltraBlurGlassUninstall.exe`. Das Quellcodearchiv ist für Entwickler optional. Alle Downloads: [Releases](https://github.com/thatirishguyyy/MKUltraBlurGlass/releases).
 
-## Kompatibilität
-Unterstützt ab **Windows 10 2004** und bis zur **neuesten Version von Windows 11** (Einige Unschärfemethoden werden in Windows Insider-Versionen nicht unterstützt).
+## Installation und Aktualisierung
 
-Kann mit Designs von Drittanbietern verwendet werden, um DWM weiter anzupassen.
+1. Beim Wechsel zuerst den Host der alten Kopie deinstallieren und deren Oberfläche schließen. Original und Fork dürfen nicht gleichzeitig aktiv sein.
+2. Das vollständige ZIP außerhalb des Benutzerprofilordners entpacken, etwa nach `C:\ProgramData\MKUltraBlurGlass`. Programm, DLLs und `data` zusammenlassen.
+3. `MKUltraBlurGlass.exe` als Administrator starten. Unter **Symbol** passende Windows-Symbole herunterladen, dann unter **General** auf **Install** klicken. „Installed“ allein bestätigt weder gültige Symbole noch sichtbare Unschärfe. Windows-Updates können neue Symbole erfordern.
+4. **Light Mode colors** und **Dark Mode colors** gelten für den Modus des jeweiligen Fensters. Mit **Save** speichern.
 
-Wir ändern nicht die Rendering-Logik der Anwendung selbst, die sich völlig von der Logik von "MicaForEveryone" unterscheidet und daher die Kompatibilität mit Programmen von Drittanbietern maximiert.
+## Deinstallation
 
-Wir haben DWM umgekehrt analysiert und eine benutzerdefinierte Unschärfemethode erstellt, um atemberaubende visuelle Effekte zu erzielen. Wenn Sie sich jedoch für die Unschärfemethode „SystemBackdrop“ entscheiden, verwendet sie die öffentlich verfügbaren Schnittstellen des Systems und hat den gleichen Effekt wie MicaForEveryone.
+`MKUltraBlurGlassUninstall.exe` öffnen, den erkannten Pfad prüfen, Administratorrechte anfordern und **Uninstall** wählen. Standardmäßig bleiben Dateien, Einstellungen und Symbole erhalten. Die optionale Bereinigung entfernt nur die vier Programmbinärdateien der gewählten Kopie; der Datenordner bleibt bestehen. Auch die ursprüngliche DWMBlurGlass-Aufgabe wird erkannt.
 
-Die Verwendung mit MicaForEveryone wird nicht empfohlen, wir garantieren keine Kompatibilität damit.
+## Tests und bekannte Einschränkungen
 
-Kompatibel mit [ExplorerBlurMica](https://github.com/Maplespe/ExplorerBlurMica), funktioniert besser zusammen.
+Getestet auf Windows 11 25H2 **26200.9974**. Installation, Deinstallation, erneute Installation und Start nach Neustart wurden für 0.1.0 geprüft. Für 0.1.1 wurden Update und unabhängige helle/dunkle Fensterfarben bestätigt; der Neustarttest wurde für diese Korrektur nicht wiederholt. Andere Builds und Effektmethoden sind nicht vollständig geprüft. Startmenü und Taskleiste gehören nicht zum Wirkungsbereich.
 
-Kompatibel mit [TranslucentFlyouts](https://github.com/ALTaleX531/TranslucentFlyouts). (**Es ist zu beachten, dass EBMv2, obwohl dieses Projekt mit TF kompatibel ist, nicht vollständig mit TFv2 kompatibel ist**)
+Der Farbwähler übernimmt eine Auswahl möglicherweise erst nach Bewegung des Auswahlpunkts auf der Palette. Die genaue Reproduktion steht noch aus: [bekannte Probleme](KNOWN-ISSUES.md).
 
-## Galerie
-<details><summary><b>Windows 11</b></summary>
-  
-![image](/Screenshot/10307.png)
+## Quellcode, Dokumentation und Lizenz
 
-![image](/Screenshot/102134.png)
+Gepflegter Branch: `mkultra/main`. Upstream-Änderungen vor dem Zusammenführen prüfen und testen; nicht direkt synchronisieren. Historische Projektdateinamen bleiben erhalten; die Ausgaben heißen `MKUltraBlurGlass.exe` und `MKUltraBlurGlassExt.dll`.
 
-> Aktivieren Sie „DWMAPI-Mica-Effekt überschreiben (win11)“
+Weiterführende Dokumentation auf Englisch: [Build](docs/BUILDING.md), [Wartung](docs/MAINTAINING.md), [Fehlerbehebung](docs/TROUBLESHOOTING.md), [Deinstaller](tools/uninstaller/README.md) und [Versionshinweise](RELEASE-NOTES.md). Für Übersetzungen XML-Werte in `Languagefiles/` bearbeiten; Schlüssel, Platzhalter und Autorenangaben erhalten.
 
-![image](/Screenshot/013521.png)
-</details>
-
-<details><summary><b>Windows 10</b></summary>
-
-![image](/Screenshot/001701.png)
-
-![image](/Screenshot/100750.png)
-
-Verwendung von Themes von Drittanbietern
-
-> Aktivieren Sie „Effekte auf Ränder erweitern (win10)“
-
-> Aktivieren Sie „Aero-Reflexionseffekt (Win10)“
-
-> Aktivieren Sie „Höhe der Titelleistenschaltfläche reduzieren (Win7-Stil)“
-
-![image](/Screenshot/025410.png)
-
-</details>
-
-## Material Effects
-### Unschärfe
-> Grundlegende reine Unschärfe. Nichts Besonderes.
-
-![image](/Screenshot/blur.png)
-
-### Aero
-> Der Glaseffekt von Windows 7 mit Sättigungs- und Belichtungseffekten im Hintergrund, wenn ein Fenster inaktiv ist.
-
-![image](/Screenshot/aero.png)
-
-![image](/Screenshot/aero_inactive.png)
-
-### Acrylic
-> Das Acrylrezept: Hintergrund, Unschärfe, Ausschlussmischung, Sättigung, Farb-/Tönungsüberlagerung und Rauschen.
-
-![image](/Screenshot/acrylic.png)
-
-### Mica
-> Das Mica-Rezept: verschwommenes Hintergrundbild, Sättigung und Farb-/Tönungsüberlagerung.
-
-![image](/Screenshot/mica.png)
-
-### MicaAlt
-Alle oben genannten Effekte können angepasst werden, um Farben zu mischen.
-
-MicaAlt ist Glimmer mit einem gräulichen Farbton. Sie können die Mischfarbe selbst ändern, um den MicaAlt-Effekt zu erzielen.
-
-## Verwendung
-
-### Installieren
-1. Laden Sie das kompilierte Programmarchiv von herunter [Release](https://github.com/Maplespe/DWMBlurGlass/releases) Seite.
-2. Entpacken Sie es an einen Speicherort wie „C:\Programme“.
-<details><summary><b>3. Führen Sie das GUI-Programm DWMBlurGlass.exe aus und klicken Sie auf „Installieren“.</b></summary>
-
-![image](/Screenshot/012746.png)
-
->Wenn beim Klicken auf „Installieren“ nichts passiert, müssen Sie auf die Seite „Symbole“ und dann auf „Herunterladen“ klicken.
-
->**Möglicherweise erhalten Sie in Zukunft eine Benachrichtigung über fehlende Symbole, insbesondere nach Systemaktualisierungen.**
-
-![image](/Screenshot/012924.png)
-
-</details>
-
-### Deinstallieren
-1. Führen Sie das GUI-Programm DWMBlurGlass.exe aus und klicken Sie auf Deinstallieren.
-2. Löschen Sie relevante Dateien
-
-## Sprachdateien
-Wir bieten mehrere Sprachen an, darunter Englisch, vereinfachtes Chinesisch, Spanisch, Portugiesisch und mehr.
-Wenn Sie uns bei der Übersetzung in andere Sprachen helfen möchten, finden Sie unten Informationen zu den Sprachdateiformaten.
-
-1. Zuerst müssen Sie dieses Repository forken und lokal klonen.
-2. Öffnen Sie den Ordner „Languagefiles“, wählen Sie eine vorhandene Sprache wie „en-US.xml“ aus und erstellen Sie eine Kopie.
-3. Benennen Sie den Code in den Namen der [Zielsprache] um (https://learn.microsoft.com/en-us/windows/win32/intl/locale-names) und öffnen Sie die XML-Datei in Ihrem bevorzugtem Texteditor.
-4. Ändern Sie in der zweiten Zeile im Feld „`local`“ den Code in Ihren Zielsprachencode, der mit dem Dateinamen identisch sein sollte (ohne die Erweiterung .xml).
-5. Sie können Ihren Namen in das Feld „Autor“ eingeben.
-6. Als nächstes übersetzen Sie bitte die Feldwerte in das XML-Format (achten Sie darauf, die Feldnamen nicht zu übersetzen).
-Das korrekte Format ist: „<config>Config</config>“ in „<config>xxxx</config>“.
-7. Speichern Sie Ihre Datei, wenn Sie fertig sind, und kopieren Sie sie in das Verzeichnis „data\lang“ in dem Ordner, in dem sich das Programm DWMBlurGlass.exe befindet.
-8. Öffnen Sie als nächstes DWMBlurGlass.exe und testen Sie die Sprachdatei, um festzustellen, ob sie ordnungsgemäß funktioniert. Wenn dies nicht der Fall ist, überprüfen Sie die Sprachcodeeinstellungen und stellen Sie sicher, dass die Datei der XML-Formatspezifikation entspricht. (Hierfür können Sie bspw. den Onlinedienst www.xmlvalidation.com nutzen)
-9. Übertragen Sie die Datei abschließend in Ihr eigenes geforktes Repository und senden Sie die Pull-Anfrage an den Hauptzweig des Ursprünglichen Projekts.
-10. Nachdem die Anfrage genehmigt wurde, wird ihre Datei mit einem zukünftigen Software-Update veröffentlicht.
-   
-
-## Abhängigkeiten
-* [MiaoUI Lite interface library v2](https://github.com/Maplespe/MiaoUILite)
-* [AcrylicEverywhere](https://github.com/ALTaleX531/AcrylicEverywhere) - Separate Upstream-Implementierung der CustomBlur-Methode, danke an ALTaleX für Recherche und Unterstützung.
-* [minhook](https://github.com/m417z/minhook)
-* [pugixml](https://github.com/zeux/pugixml)
-* [VC_LTL](https://github.com/Chuyu-Team/VC-LTL5)
-* [Windows Implementation Libraries](https://github.com/Microsoft/wil)
+GNU LGPL Version 3 oder neuer: [COPYING.LESSER](COPYING.LESSER) und [LICENSE.txt](LICENSE.txt). Ursprüngliche Urheberrechts- und Drittanbieterhinweise bleiben erhalten. Abhängigkeiten und ihre Autoren stehen in [CREDITS.md](CREDITS.md).

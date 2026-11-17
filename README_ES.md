@@ -1,168 +1,38 @@
-# DWMBlurGlass
-Agrega efectos personalizados de desenfoque a la barra de título global del sistema. Compatible con Windows 10 y Windows 11.
+# MKUltraBlurGlass
 
-给全局系统标题栏添加自定义效果，支持win10和win11
-#
-| [中文](/README_ZH.md) | [English](/README.md) | [italiano](/README_IT.md) | [français](/README_FR.md) | [Türkçe](/README_TR.md) | [español](/README_ES.md)
-Este proyecto usa la [licencia LGPL v3](/COPYING.LESSER).
+[English](README.md) · [Deutsch](README_DE.md) · [Español](README_ES.md) · [Français](README_FR.md) · [Italiano](README_IT.md) · [Português (Brasil)](README_PTBR.md) · [Türkçe](README_TR.md) · [Tiếng Việt](README_VI.md) · [简体中文](README_ZH.md)
 
-Otros idiomas:
-> La siguiente documentación puede estar obsoleta, consulte la documentación actual.
->
-> [Deutsch](/README_DE.md)
+Una bifurcación personal de mantenimiento de DWMBlurGlass 2.3.1 para efectos en las barras de título y bordes de las ventanas de Windows. Mantenida por **thatirishguyyy**.
 
+**El original fue creado por Maplespe.** Gracias a Maplespe, ALTaleX531 y todos los colaboradores y traductores. Consulta los [créditos](CREDITS.md) y el [proyecto original](https://github.com/Maplespe/DWMBlurGlass).
 
-[![Licencia](https://img.shields.io/github/license/Maplespe/DWMBlurGlass.svg?label=Licencia)](https://www.gnu.org/licenses/lgpl-3.0.en.html)
-[![GitHub All Releases](https://img.shields.io/github/downloads/Maplespe/DWMBlurGlass/total.svg?label=Descargas)](https://github.com/Maplespe/DWMBlurGlass/releases)
-[![GitHub release](https://img.shields.io/github/release/Maplespe/DWMBlurGlass.svg?label=Versión)](https://github.com/Maplespe/DWMBlurGlass/releases/latest)
-<img src="https://img.shields.io/badge/language-C++-F34B7D.svg?label=Lenguaje"/>
+## Versión y descarga
 
-## Índice
-- [Efectos](#efectos)
-- [Compatibilidad](#compatibilidad)
-- [Galería](#galería)
-- [Efectos de material](#efectos-de-material)
-  - [Blur (desenfocado)](#blur-desenfocado)
-  - [Aero](#aero)
-  - [Acrylic](#acrylic)
-  - [Mica](#mica)
-  - [MicaAlt](#micaalt)
-- [Instrucciones de uso](#instrucciones-de-uso)
-  - [Instalar](#instalar)
-  - [Desinstalar](#desinstalar)
-- [Archivos de idioma](#archivos-de-idioma)
-- [Dependencias](#dependencias)
+**0.1.1** corrige la detección del modo oscuro de las ventanas en compilaciones recientes de Windows 11. Las ventanas claras y oscuras utilizan de forma independiente sus colores de ventana activa e inactiva. Esta bifurcación también incluye correcciones de geometría y contexto de color, una interfaz azul, un clic de menú que se puede silenciar en About y un desinstalador en inglés.
 
-## Efectos
-* Agrega un efecto personalizado a la barra de título global del sistema.
-* Permite modificar el radio de desenfoque global o sólo de la barra de título.
-* Colores fusión de la barra de título personalizables.
-* Color de texto de la barra de título personalizable.
-* Permite usar reflejos Aero y efectos de paralaje.
-* Permite restaurar el tamaño de los botones de la barra de título al estilo de Windows 7.
-* Soporte para habilitar el efecto de desenfoque para programas que usan la antigua API de Windows 7 DwmEnableBlurBehindWindow.
-* Soporta efectos `Blur (desenfocado)`, `Aero`, `Acrylic` y `Mica (sólo para Windows 11)`.
-* Colores de modo claro y oscuro personalizables individualmente y con cambio automático.
-* Métodos de desenfoque disponibles: `CustomBlur`, `AccentBlur` y `SystemBackdrop`.
-* Soporte para temas de terceros.
+Solo necesitas una descarga: [MKUltraBlurGlass-0.1.1.zip](https://github.com/thatirishguyyy/MKUltraBlurGlass/releases/download/v0.1.1/MKUltraBlurGlass-0.1.1.zip) incluye la aplicación y `MKUltraBlurGlassUninstall.exe`. El archivo de código fuente es opcional para desarrolladores. Todas las descargas: [versiones publicadas](https://github.com/thatirishguyyy/MKUltraBlurGlass/releases).
 
-![image](/Screenshot/001701.png)
-![image](/Screenshot/10307.png)
+## Instalación y actualización
 
-## Compatibilidad
-Es compatible desde **Windows 10 2004** hasta la **última versión de Windows 11** (algunos métodos de desenfoque no son compatibles con versiones de Windows Insider).
+1. Para cambiar de copia, desinstala primero el host anterior y cierra su interfaz. No actives el original y esta bifurcación a la vez.
+2. Extrae el ZIP completo fuera de tu carpeta de perfil, por ejemplo en `C:\ProgramData\MKUltraBlurGlass`. Mantén juntos el programa, las DLL y `data`.
+3. Ejecuta `MKUltraBlurGlass.exe` como administrador. En **Symbol**, descarga los símbolos correspondientes a Windows; después pulsa **Install** en **General**. «Installed» por sí solo no garantiza símbolos válidos ni desenfoque visible. Las actualizaciones de Windows pueden requerir nuevos símbolos.
+4. **Light Mode colors** y **Dark Mode colors** corresponden al modo de cada ventana. Guarda con **Save**.
 
-Se pueden aplicar temas de terceros para personalizar aún más DWM.
+## Desinstalación
 
-No modificamos la lógica de renderizado de la aplicación en sí, la cual es completamente diferente de la lógica de MicaForEveryone y, por lo tanto, maximiza la compatibilidad con programas de terceros.
+Abre `MKUltraBlurGlassUninstall.exe`, comprueba la ruta detectada, solicita permisos de administrador y pulsa **Uninstall**. Por defecto se conservan archivos, ajustes y símbolos. La limpieza opcional elimina únicamente los cuatro binarios de la copia seleccionada; conserva la carpeta de datos. También reconoce la tarea del DWMBlurGlass original.
 
-Realizamos un análisis inverso de DWM y creamos un método de desenfoque personalizado para lograr efectos visuales impresionantes, pero si elige el método de desenfoque "`SystemBackdrop`", se usarán las interfaces públicamente disponibles del sistema y tiene el mismo efecto que MicaForEveryone.
+## Pruebas y limitaciones conocidas
 
-No se recomienda su uso con MicaForEveryone, no garantizamos su compatibilidad.
+Probado en Windows 11 25H2 **26200.9974**. En 0.1.0 se verificaron instalación, desinstalación, reinstalación e inicio tras reiniciar. En 0.1.1 se confirmaron la actualización y los colores independientes de ventanas claras y oscuras; no se repitió la prueba de reinicio para esta corrección. Otras compilaciones y métodos de efecto no están completamente validados. El menú Inicio y la barra de tareas quedan fuera del alcance.
 
-Compatible con [ExplorerBlurMica](https://github.com/Maplespe/ExplorerBlurMica), funcionan mejor en conjunto.
+El selector de color puede no aplicar una selección hasta mover el punto de selección en la paleta. Aún faltan pasos exactos de reproducción: [problemas conocidos](KNOWN-ISSUES.md).
 
-Compatible con [TranslucentFlyouts](https://github.com/ALTaleX531/TranslucentFlyouts). (**Cabe destacar que, aunque este proyecto es compatible con TF, EBMv2 no es completamente compatible con TFv2**)
+## Código, documentación y licencia
 
-## Galería
-<details><summary><b>Windows 11</b></summary>
+Rama mantenida: `mkultra/main`. Revisa y prueba los cambios del proyecto original antes de integrarlos; no sincronices directamente. Se conservan los nombres históricos de los proyectos; los archivos generados son `MKUltraBlurGlass.exe` y `MKUltraBlurGlassExt.dll`.
 
-![image](/Screenshot/10307.png)
+Documentación detallada en inglés: [compilación](docs/BUILDING.md), [mantenimiento](docs/MAINTAINING.md), [solución de problemas](docs/TROUBLESHOOTING.md), [desinstalador](tools/uninstaller/README.md) y [notas de versión](RELEASE-NOTES.md). Para traducir, modifica los valores XML de `Languagefiles/` y conserva claves, marcadores y créditos de autor.
 
-![image](/Screenshot/102134.png)
-
-> «Redefinir efecto Mica establecido mediante DWMAPI (Win 11)» habilitado
-
-![image](/Screenshot/013521.png)
-</details>
-
-<details><summary><b>Windows 10</b></summary>
-
-![image](/Screenshot/001701.png)
-
-![image](/Screenshot/100750.png)
-
-Usando temas de terceros, las siguientes opciones fueron habilitadas:
-
-> «Extender efectos a bordes (Win 10)»
-
-> «Habilitar efecto de reflejo Aero»
-
-> «Restaurar tamaño de botones de barra de título (estilo de Win 7)»
-
-![image](/Screenshot/025410.png)
-
-</details>
-
-## Efectos de material
-### Blur (desenfocado)
-> Simple desenfoque básico. No tiene nada de particular.
-
-![image](/Screenshot/blur.png)
-
-### Aero
-> El efecto cristal «Glass» de Windows 7, con efectos de saturación y exposición en el fondo cuando una ventana está inactiva.
-
-![image](/Screenshot/aero.png)
-
-![image](/Screenshot/aero_inactive.png)
-
-### Acrylic
-> La receta Acrylic: fondo, desenfoque, fusión exclusión, saturación, superposición de color o tinte, y ruido.
-
-![image](/Screenshot/acrylic.png)
-
-### Mica
-> La receta Mica: fondo de pantalla desenfocado, saturación, y superposición de color o tinte.
-
-![image](/Screenshot/mica.png)
-
-### MicaAlt
-Todos los efectos anteriores se pueden personalizar para fusionar colores.
-
-MicaAlt es Mica con un tono grisáceo, usted puede modificar el color fusión para obtener el efecto MicaAlt.
-
-## Instrucciones de uso
-
-### Instalar
-1. Descargue el archivo del programa compilado desde la página de [Releases](https://github.com/Maplespe/DWMBlurGlass/releases).
-2. Descomprímalo en una ubicación como "`C:\Program Files`".
-<details><summary><b>3. Ejecute el programa GUI DWMBlurGlass.exe y haga clic en Instalar.</b></summary>
-
-![image](/Screenshot/012746.png)
-
-> Si no sucede nada al hacer clic en Instalar, entonces necesita hacer clic en la página de Símbolos y luego en Descargar.
-
-> **Es posible que reciba una notificación sobre símbolos faltantes en el futuro, especialmente después de las actualizaciones del sistema.**
-
-![image](/Screenshot/012924.png)
-
-</details>
-
-### Desinstalar
-1. Ejecute el programa GUI DWMBlurGlass.exe y haga clic en Desinstalar.
-2. Elimine los archivos relevantes.
-
-## Archivos de idioma
-Se ofrecen varias traducciones, como inglés, chino simplificado, español y portugués, entre otras.
-Si desea ayudarnos a traducir a otros idiomas, consulte a continuación los formatos de archivo de idioma.
-
-1. En primer lugar, debe hacer un *fork* (o bifurcar) este repositorio y clonarlo localmente.
-2. Abra la carpeta "`Languagefiles`" y seleccione un idioma existente como "`en-US.xml`" y haga una copia.
-3. Cambie el nombre del archivo al nombre del [idioma objetivo](https://learn.microsoft.com/es-es/windows/win32/intl/locale-names) y ábralo en su editor de texto favorito.
-4. En la segunda línea, en el campo "`local`", cámbielo por el código de idioma objetivo, que debería ser el mismo que el nombre del archivo (sin la extensión .xml).
-5. Puede poner su nombre en el campo "`author`".
-6. A continuación, traduzca los valores de los campos en el formato XML (tenga cuidado de no traducir los nombres de los campos). El formato correcto es: `<config>Config</config>` a `<config>xxxx</config>`.
-7. Guarde el archivo cuando haya terminado y cópielo en el directorio "data\lang" en la carpeta donde se encuentra el programa DWMBlurGlass.exe.
-8. A continuación, abra DWMBlurGlass.exe y pruebe el archivo de idioma para ver si funciona correctamente. Si no lo hace, verifique la configuración del código de idioma y asegúrese de que el archivo cumpla con la especificación del formato XML.
-9. Por último, haga un *commit* (o confirme los cambios) del archivo en su propio repositorio bifurcado y envíe un *pull request* (o solicitud de extracción) a la rama principal del proyecto.
-10. Después de que se apruebe la solicitud, su archivo se lanzará con una futura actualización del software.
-
-
-## Dependencias
-* [MiaoUI Lite interface library v2](https://github.com/Maplespe/MiaoUILite)
-* [AcrylicEverywhere](https://github.com/ALTaleX531/AcrylicEverywhere) - Implementación separada del método CustomBlur, gracias a ALTaleX por la investigación y el apoyo.
-* [minhook](https://github.com/m417z/minhook)
-* [pugixml](https://github.com/zeux/pugixml)
-* [VC_LTL](https://github.com/Chuyu-Team/VC-LTL5)
-* [Bibliotecas de implementación de Windows (WIL)](https://github.com/Microsoft/wil)
+GNU LGPL versión 3 o posterior: [COPYING.LESSER](COPYING.LESSER) y [LICENSE.txt](LICENSE.txt). Se conservan los avisos originales de derechos de autor y de terceros. Las dependencias y sus autores figuran en [CREDITS.md](CREDITS.md).

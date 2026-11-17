@@ -1,168 +1,38 @@
-# DWMBlurGlass
-Ajoute un effet personnalisé à la barre de titre du système global, prend en charge win10 et win11.
+# MKUltraBlurGlass
 
-给全局系统标题栏添加自定义效果，支持win10和win11
-#
-| [中文](/README_ZH.md) | [English](/README.md) | [italiano](/README_IT.md) | [français](/README_FR.md) | [Türkçe](/README_TR.md) | [español](/README_ES.md)
-Ce projet utilise la [licence LGNU V3](/COPYING.LESSER).
+[English](README.md) · [Deutsch](README_DE.md) · [Español](README_ES.md) · [Français](README_FR.md) · [Italiano](README_IT.md) · [Português (Brasil)](README_PTBR.md) · [Türkçe](README_TR.md) · [Tiếng Việt](README_VI.md) · [简体中文](README_ZH.md)
 
-Autres langues :
-> La documentation suivante peut être obsolète, veuillez vous référer à la documentation actuelle.
->
-> [Deutsch](/README_DE.md)
+Un fork personnel de maintenance de DWMBlurGlass 2.3.1 pour les effets sur les barres de titre et bordures des fenêtres Windows. Maintenu par **thatirishguyyy**.
 
+**L’original a été créé par Maplespe.** Merci à Maplespe, ALTaleX531 et à tous les contributeurs et traducteurs. Voir les [crédits](CREDITS.md) et le [projet original](https://github.com/Maplespe/DWMBlurGlass).
 
-[![licence](https://img.shields.io/github/license/Maplespe/DWMBlurGlass.svg)](https://www.gnu.org/licenses/lgpl-3.0.en.html)
-[![Toutes les versions GitHub](https://img.shields.io/github/downloads/Maplespe/DWMBlurGlass/total.svg)](https://github.com/Maplespe/DWMBlurGlass/releases)
-[![Version GitHub](https://img.shields.io/github/release/Maplespe/DWMBlurGlass.svg)](https://github.com/Maplespe/DWMBlurGlass/releases/latest)
-<img src="https://img.shields.io/badge/language-c++-F34B7D.svg"/>
-<img src="https://img.shields.io/github/last-commit/Maplespe/DWMBlurGlass.svg"/>  
+## Version et téléchargement
 
-## Catalogue
-- [Effets](#effets)
-- [Compatibilité](#compatibilité)
-- [Galerie](#galerie)
-- [Effets Matériels](#effets-matériels)
-  - [Flou](#flou)
-  - [Aero](#aero)
-  - [Acrylique](#acrylique)
-  - [Mica](#mica)
-  - [MicaAlt](#micaalt)
-- [Comment utiliser](#comment-utiliser)
-  - [Installer](#installer)
-  - [Désinstaller](#désinstaller)
-- [Fichiers de langue](#fichiers-de-langue)
-- [Dépendances](#dépendances)
+**0.1.1** corrige la détection du mode sombre des fenêtres sur les versions récentes de Windows 11. Les fenêtres claires et sombres suivent indépendamment leurs couleurs de fenêtre active et inactive. Ce fork apporte aussi des corrections de géométrie et de contexte de couleur, une interface bleue, un son de clic désactivable dans About et un outil de désinstallation en anglais.
 
-## Effets
-* Ajoute un effet personnalisé à la barre de titre du système global.
-* Rayon de flou global personnalisable ou rayon de flou de la barre de titre uniquement.
-* Couleurs de mélange de la barre de titre personnalisables.
-* Couleur du texte de la barre de titre personnalisable.
-* Reflets Aero et effets de parallaxe peuvent être ajoutés.
-* Restaure la hauteur des boutons de la barre de titre du style Win7.
-* Prise en charge de l'activation de l'effet de flou pour les programmes utilisant l'ancienne API DwmEnableBlurBehindWindow de Win7.
-* Prise en charge des effets `Blur`, `Aero`, `Acrylique`, `Mica (Win11 uniquement)`.
-* Mode couleur claire/sombre personnalisable individuellement avec commutation automatique.
-* Les méthodes de flou `CustomBlur`, `AccentBlur` et `SystemBackdrop` sont disponibles.
-* Prise en charge des thèmes tiers.
+Un seul téléchargement suffit : [MKUltraBlurGlass-0.1.1.zip](https://github.com/thatirishguyyy/MKUltraBlurGlass/releases/download/v0.1.1/MKUltraBlurGlass-0.1.1.zip) contient l’application et `MKUltraBlurGlassUninstall.exe`. L’archive des sources est facultative et destinée aux développeurs. Tous les téléchargements : [versions publiées](https://github.com/thatirishguyyy/MKUltraBlurGlass/releases).
 
-![image](/Screenshot/001701.png)
-![image](/Screenshot/10307.png)
+## Installation et mise à jour
 
-## Compatibilité
-Pris en charge à partir de **Windows 10 2004** jusqu'à la **dernière version de Windows 11** (Certaines méthodes de flou ne sont pas prises en charge dans la version de prévisualisation).
+1. Pour changer de copie, désinstaller d’abord l’hôte de l’ancienne copie, puis fermer son interface. Ne pas activer simultanément l’original et ce fork.
+2. Extraire le ZIP complet hors du dossier de profil utilisateur, par exemple dans `C:\ProgramData\MKUltraBlurGlass`. Conserver ensemble le programme, les DLL et `data`.
+3. Exécuter `MKUltraBlurGlass.exe` en tant qu’administrateur. Dans **Symbol**, télécharger les symboles correspondant à Windows, puis cliquer sur **Install** dans **General**. « Installed » ne garantit pas à lui seul des symboles valides ni un flou visible. Une mise à jour de Windows peut nécessiter de nouveaux symboles.
+4. **Light Mode colors** et **Dark Mode colors** suivent le mode propre à chaque fenêtre. Enregistrer avec **Save**.
 
-Peut être utilisé avec des thèmes tiers pour personnaliser davantage DWM.
+## Désinstallation
 
-Nous ne modifions pas la logique de rendu de l'application elle-même, ce qui est totalement différent de la logique de MicaForEveryone et maximise donc la compatibilité avec les programmes tiers.
+Ouvrir `MKUltraBlurGlassUninstall.exe`, vérifier le chemin détecté, demander les droits administrateur, puis cliquer sur **Uninstall**. Par défaut, les fichiers, réglages et symboles sont conservés. Le nettoyage facultatif supprime uniquement les quatre fichiers binaires de la copie sélectionnée ; le dossier de données est conservé. La tâche du DWMBlurGlass original est également reconnue.
 
-Nous effectuons une analyse inverse du dwm et codons une méthode de flou personnalisée pour apporter des effets visuels étonnants, mais si vous choisissez la méthode de flou "`SystemBackdrop`", elle utilise les interfaces publiques disponibles du système et a le même effet que MicaForEveryone.
+## Tests et limites connues
 
-Non recommandé pour une utilisation avec MicaForEveryone, nous ne garantissons pas la compatibilité avec celui-ci.
+Testé sur Windows 11 25H2 **26200.9974**. Pour 0.1.0, l’installation, la désinstallation, la réinstallation et le démarrage après redémarrage ont été vérifiés. Pour 0.1.1, la mise à jour et les couleurs indépendantes des fenêtres claires et sombres ont été confirmées ; le test de redémarrage n’a pas été répété pour ce correctif. Les autres versions de Windows et méthodes d’effet ne sont pas entièrement validées. Le menu Démarrer et la barre des tâches ne sont pas concernés.
 
-Compatible avec [ExplorerBlurMica](https://github.com/Maplespe/ExplorerBlurMica), fonctionne mieux ensemble.
+Le sélecteur de couleur peut ne pas valider un choix avant le déplacement du point de sélection sur la palette. La reproduction exacte reste à préciser : [problèmes connus](KNOWN-ISSUES.md).
 
-Compatible avec [TranslucentFlyouts](https://github.com/ALTaleX531/TranslucentFlyouts). (**Il convient de noter que même si ce projet est compatible avec TF, EBMv2 n'est pas entièrement compatible avec TFv2**)
+## Sources, documentation et licence
 
-## Galerie
-<details><summary><b>Windows 11</b></summary>
-  
-![image](/Screenshot/10307.png)
+Branche maintenue : `mkultra/main`. Examiner et tester les changements du projet original avant de les intégrer ; ne pas synchroniser directement. Les noms historiques des projets sont conservés ; les fichiers produits sont `MKUltraBlurGlass.exe` et `MKUltraBlurGlassExt.dll`.
 
-![image](/Screenshot/102134.png)
+Documentation détaillée en anglais : [compilation](docs/BUILDING.md), [maintenance](docs/MAINTAINING.md), [dépannage](docs/TROUBLESHOOTING.md), [désinstallation](tools/uninstaller/README.md) et [notes de version](RELEASE-NOTES.md). Pour traduire, modifier les valeurs XML de `Languagefiles/` en conservant les clés, paramètres de substitution et crédits d’auteur.
 
-> Activer "Remplacer l'effet Mica DWMAPI (win11)"
-
-![image](/Screenshot/013521.png)
-</details>
-
-<details><summary><b>Windows 10</b></summary>
-
-![image](/Screenshot/001701.png)
-
-![image](/Screenshot/100750.png)
-
-Utilisation de thèmes tiers
-
-> Activer "Étendre les effets aux bordures (win10)"
-
-> Activer "Effet de réflexion Aero (win10)"
-
-> Activer "Réduire la hauteur des boutons de la barre de titre (style win7)"
-
-![image](/Screenshot/025410.png)
-
-</details>
-
-## Effets Matériels
-### Flou
-> Flou pur de base. Rien de spécial.
-
-![image](/Screenshot/blur.png)
-
-### Aero
-> Effet de verre de Windows 7, avec des effets de saturation et d'exposition sur l'arrière-plan lorsqu'il perd le focus.
-
-![image](/Screenshot/aero.png)
-
-![image](/Screenshot/aero_inactive.png)
-
-### Acrylique
-> La recette acrylique : arrière-plan, flou, exclusion de mélange, saturation, superposition de couleur/teinte, bruit
-
-![image](/Screenshot/acrylic.png)
-
-### Mica
-> La recette du mica : fond d'écran flou, saturation, superposition de couleur/teinte
-
-![image](/Screenshot/mica.png)
-
-### MicaAlt
-Tous les effets ci-dessus peuvent être personnalisés pour mélanger les couleurs.
-
-MicaAlt est Mica avec une teinte grisâtre, vous pouvez modifier la couleur de mélange vous-même pour obtenir l'effet MicaAlt.
-
-## Comment utiliser
-
-### Installer
-1. Téléchargez l'archive du programme compilé depuis la [page de sortie](https://github.com/Maplespe/DWMBlurGlass/releases).
-2. Décompressez-le à un emplacement tel que "`C:\Program Files`".
-<details><summary><b>3. Exécutez le programme DWMBlurGlass.exe GUI et cliquez sur Installer.</b></summary>
-
-![image](/Screenshot/012746.png)
-
-> Si le message "L'installation a réussi ! Mais vous n'avez pas encore téléchargé un fichier de symboles valide, veuillez le télécharger depuis la page "Symboles" avant de pouvoir l'utiliser !" s'affiche, vous devez cliquer sur la page des Symboles et cliquer sur Télécharger avant de pouvoir l'utiliser.
-
->**Notez que vous pourriez recevoir des notifications similaires à l'avenir, en particulier après des mises à jour système.**
-
-![image](/Screenshot/012924.png)
-
-</details>
-
-### Désinstaller
-1. Exécutez le programme DWMBlurGlass.exe GUI et cliquez sur Désinstaller.
-2. Supprimez les fichiers pertinents
-
-## Fichiers de langue
-Nous proposons les langues de base anglais et chinois simplifié.
-Si vous souhaitez nous aider à traduire dans d'autres langues, veuillez voir ci-dessous pour les formats de fichier de langue.
-
-1. Tout d'abord, vous devez fork ce dépôt et le cloner localement.
-2. Ouvrez le dossier "`Languagefiles`" et sélectionnez une langue existante telle que "`en-US.xml`" et faites une copie.
-3. Renommez le code avec le nom de la [langue cible](https://learn.microsoft.com/fr-fr/windows/win32/intl/locale-names) et ouvrez le fichier xml dans votre éditeur de texte préféré.
-4. À la deuxième ligne, dans le champ "`local`", changez-le pour le code de votre langue cible, qui devrait être le même que le nom de fichier (sans l'extension .xml).
-5. Vous pouvez mettre votre nom dans le champ "`author`".
-6. Ensuite, veuillez traduire les valeurs de champ dans le format xml (faites attention à ne pas traduire les noms de champ) Le format correct est:`<config>Config</config>` à `<config>xxxx</config>`.
-7. Enregistrez votre fichier lorsque vous avez terminé et copiez-le dans le répertoire "data\lang" du dossier où se trouve le programme DWMBlurGlass.exe.
-8. Ensuite, ouvrez DWMBlurGlass.exe et testez le fichier de langue pour voir s'il fonctionne correctement. S'il ne fonctionne pas, vérifiez les paramètres du code de langue et vérifiez que le fichier est conforme à la spécification du format xml.
-9. Enfin, validez le fichier dans votre propre dépôt forké et envoyez des demandes de fusion à la branche principale du projet.
-10. Une fois la demande approuvée, votre fichier sera publié avec une future mise à jour logicielle.
-
-## Dépendances
-* [MiaoUI Lite interface library v2](https://github.com/Maplespe/MiaoUILite)
-* [AcrylicEverywhere](https://github.com/ALTaleX531/AcrylicEverywhere) - Implémentation en amont séparée de la méthode de flou CustomBlur, merci à ALTaleX pour la recherche et le soutien.
-* [minhook](https://github.com/m417z/minhook)
-* [pugixml](https://github.com/zeux/pugixml)
-* [VC_LTL](https://github.com/Chuyu-Team/VC-LTL5)
-* [Bibliothèques d'implémentation Windows](https://github.com/Microsoft/wil)
+GNU LGPL version 3 ou ultérieure : [COPYING.LESSER](COPYING.LESSER) et [LICENSE.txt](LICENSE.txt). Les mentions originales de droits d’auteur et de tiers sont conservées. Les dépendances et leurs auteurs figurent dans [CREDITS.md](CREDITS.md).

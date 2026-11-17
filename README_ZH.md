@@ -1,177 +1,38 @@
-# DWMBlurGlass
-Add blur effect to global system title bar, support win10 and win11.
+# MKUltraBlurGlass
 
-给全局系统标题栏添加自定义效果，支持win10和win11
-#
-| [中文](/README_ZH.md) | [English](/README.md) | [italiano](/README_IT.md) | [français](/README_FR.md) | [Türkçe](/README_TR.md) | [español](/README_ES.md)
-This project uses [LGNU V3 license](/COPYING.LESSER).
+[English](README.md) · [Deutsch](README_DE.md) · [Español](README_ES.md) · [Français](README_FR.md) · [Italiano](README_IT.md) · [Português (Brasil)](README_PTBR.md) · [Türkçe](README_TR.md) · [Tiếng Việt](README_VI.md) · [简体中文](README_ZH.md)
 
-其他语言:
-> 以下文档可能部分已经过期，请以当前文档为准
->
-> [Deutsch](/README_DE.md)
+这是基于 DWMBlurGlass 2.3.1 的个人维护分支，用于为 Windows 窗口标题栏和边框添加效果，由 **thatirishguyyy** 维护。
 
-## !!!!不要从其他地方下载DWMBlurGlass!!!!
-> [!WARNING]
-> 我们发现有人冒充我们发布植入恶意代码的DWMBlurGlass，
-> 
-> 为了避免此类事项再次发生，请不要从非官方地址下载软件！
-> 
-> **我们也没有任何官方的Discord。**
-> 
-> 我们仅在 [Github](https://github.com/Maplespe/DWMBlurGlass/releases)、 [Bilibili](https://space.bilibili.com/87195798) 和 [winmoes](https://winmoes.com) 发布软件
-> 
-> 以及，任何新版本的测试都会先推送到test分支，而不是提前发布二进制文件。
+**原项目由 Maplespe 创建。** 感谢 Maplespe、ALTaleX531，以及所有贡献者和翻译者。请参阅[致谢](CREDITS.md)和[原项目](https://github.com/Maplespe/DWMBlurGlass)。
 
-[![license](https://img.shields.io/github/license/Maplespe/DWMBlurGlass.svg)](https://www.gnu.org/licenses/lgpl-3.0.en.html)
-[![Github All Releases](https://img.shields.io/github/downloads/Maplespe/DWMBlurGlass/total.svg)](https://github.com/Maplespe/DWMBlurGlass/releases)
-[![GitHub release](https://img.shields.io/github/release/Maplespe/DWMBlurGlass.svg)](https://github.com/Maplespe/DWMBlurGlass/releases/latest)
-<img src="https://img.shields.io/badge/language-c++-F34B7D.svg"/>
-<img src="https://img.shields.io/github/last-commit/Maplespe/DWMBlurGlass.svg"/>  
+## 版本与下载
 
-## 目录
-- [效果](#效果)
-- [兼容性](#兼容性)
-- [预览](#预览)
-- [材质效果](#材质效果)
-  - [Blur](#blur)
-  - [Acrylic](#acrylic)
-  - [Mica](#mica)
-  - [MicaAlt](#micaalt)
-- [如何使用](#如何使用)
-  - [安装](#安装)
-  - [卸载](卸载)
-- [语言文件](#语言文件)
-- [依赖](#依赖)
+**0.1.1** 修复了较新 Windows 11 版本上的窗口深色模式识别问题。浅色和深色窗口现在能分别使用各自的活动、非活动窗口颜色设置。本分支还包含几何对象与颜色上下文修复、蓝色界面、可在 About 页面关闭的菜单点击音效，以及英文卸载工具。
 
-## 效果
-* 为全局系统标题栏添加自定义效果
-* 可自定义全局或仅标题栏的模糊强度
-* 可自定义标题栏混合颜色
-* 可自定义标题栏文本颜色
-* 可添加Aero反射和视差效果
-* 可还原win7样式标题栏按钮高度
-* 可还原win7样式标题栏按钮发光效果
-* 支持为使用旧版win7API DwmEnableBlurBehindWindow 的程序启用模糊效果
-* 支持 `Blur`, `Aero`, `Acrylic`, `Mica(仅win11)` 效果
-* 可单独设置 亮/暗 颜色模式颜色，跟随系统自动切换
-* 提供 `CustomBlur`、`AccentBlur`、`SystemBackdrop` 模糊方法可选
-* 第三方主题支持
+只需下载一个文件：[MKUltraBlurGlass-0.1.1.zip](https://github.com/thatirishguyyy/MKUltraBlurGlass/releases/download/v0.1.1/MKUltraBlurGlass-0.1.1.zip)，其中已包含程序和 `MKUltraBlurGlassUninstall.exe` 卸载工具。源码压缩包供开发者使用，普通用户无需下载。所有下载见[发布页面](https://github.com/thatirishguyyy/MKUltraBlurGlass/releases)。
 
-![image](./Screenshot/001701.png)
-![image](./Screenshot/10307.png)
+## 安装与更新
 
-## 兼容性
-最低支持 **Windows 10 2004** 最高支持到 **Windows 11 最新版**(部分模糊方法不支持预览版)
+1. 切换到另一份程序前，先卸载旧副本的宿主并关闭其界面。不要同时启用原版和本分支的宿主。
+2. 将完整 ZIP 解压到用户配置文件目录之外，例如 `C:\ProgramData\MKUltraBlurGlass`。程序、DLL 和 `data` 文件夹必须放在一起。
+3. 以管理员身份运行 `MKUltraBlurGlass.exe`。在 **Symbol** 页面下载与当前 Windows 匹配的符号文件，再在 **General** 页面点击 **Install**。仅显示“Installed”并不能证明符号有效或模糊效果已经生效。Windows 更新后可能需要重新下载符号。
+4. **Light Mode colors** 和 **Dark Mode colors** 根据每个窗口自身的浅色、深色模式应用。修改后点击 **Save** 保存。
 
-可以与第三方主题一起使用进一步定制DWM.
+## 卸载
 
-我们不会修改应用程序本身的渲染逻辑，与MicaForEveryone原理完全不同，因此也最大程度与第三方程序兼容.
+打开 `MKUltraBlurGlassUninstall.exe`，核对识别到的程序路径，获取管理员权限，然后点击 **Uninstall**。默认保留程序文件、设置和符号文件。可选清理仅删除所选副本的四个程序二进制文件，保留数据文件夹。卸载工具也能识别原版 DWMBlurGlass 的启动任务。
 
-我们通过逆向分析dwm并编写自定义模糊类带来令人惊叹的视觉效果，但如果你选择"SystemBackdrop"模糊方法，则使用公开的系统接口，效果和MicaForEveryone一样
+## 测试与已知限制
 
-不推荐与MicaForEveryone一起使用，我们不保证其兼容性
+已在 Windows 11 25H2 **26200.9974** 上测试。0.1.0 已验证安装、卸载、重新安装和重启后自动启动。0.1.1 已确认更新成功，以及浅色、深色窗口颜色可独立设置；尚未针对本次补丁重新进行重启测试。其他系统版本及效果方法尚未得到完整验证。开始菜单和任务栏不在本程序的作用范围内。
 
-与[ExplorerBlurMica](https://github.com/Maplespe/ExplorerBlurMica)兼容，一起使用效果更佳.
+取色器可能需要移动主调色板上的选择点后才会应用选定颜色。准确复现步骤尚未确认，详见[已知问题](KNOWN-ISSUES.md)。
 
-与[TranslucentFlyouts](https://github.com/ALTaleX531/TranslucentFlyouts)兼容. (**需要注意的是即使本项目与TF兼容，但EBMv2与TFv2并不完全兼容**)
+## 源码、文档与许可证
 
-## 预览
-<details><summary><b>Windows 11</b></summary>
-  
-![image](./Screenshot/10307.png)
+维护分支为 `mkultra/main`。合并上游改动前必须先审查并测试，不要直接同步。保留历史解决方案和项目名称；输出文件为 `MKUltraBlurGlass.exe` 和 `MKUltraBlurGlassExt.dll`。
 
-![image](./Screenshot/102134.png)
+详细维护文档目前使用英文：[构建](docs/BUILDING.md)、[维护](docs/MAINTAINING.md)、[故障排查](docs/TROUBLESHOOTING.md)、[卸载工具](tools/uninstaller/README.md)和[发布说明](RELEASE-NOTES.md)。如需翻译界面，请修改 `Languagefiles/` 中的 XML 字段值，并保留键名、占位符及作者信息。
 
-- [x] 覆盖使用DWMAPI设置的云母效果 (win11)
-
-![image](./Screenshot/013521.png)
-</details>
-
-<details><summary><b>Windows 10</b></summary>
-
-![image](./Screenshot/001701.png)
-
-![image](./Screenshot/100750.png)
-
-使用第三方主题
-
-- [x] 扩展效果到边框 (win10)
-
-- [x] 启用Aero反射效果
-
-- [x] 减少标题栏按钮高度 (win7 样式)
-
-![image](./Screenshot/025410.png)
-
-</details>
-
-## 材质效果
-### Blur
-> 基础的模糊效果，没什么特别的
-
-![image](/Screenshot/blur.png)
-
-### Aero
-> Windows 7 的玻璃效果 失去焦点时具有曝光和饱和度效果
-
-![image](./Screenshot/aero.png)
-
-![image](./Screenshot/aero_inactive.png)
-
-### Acrylic
-> 亚克力效果配方: 背景, 模糊, 叠加混合, 饱和度, 颜色混合覆盖, 噪点纹理
-
-![image](./Screenshot/acrylic.png)
-
-### Mica
-> 云母效果配方: 模糊的壁纸, 饱和度, 颜色混合覆盖
-
-![image](./Screenshot/mica.png)
-
-### MicaAlt
-以上的所有效果均可以自定义混合颜色，MicaAlt是灰色调的云母效果的变体，你可以自定义混合颜色来实现MicaAlt效果
-
-## 如何使用
-
-### 安装
-1. 从 [Release](https://github.com/Maplespe/DWMBlurGlass/releases) 页面下载压缩包.
-2. 解压到一个位置 例如 "`C:\Program Files`".
-<details><summary><b>3. 运行 DWMBlurGlass.exe GUI 程序 并点击安装.</b></summary>
-
-![image](./Screenshot/013025.png)
-
->如果提示 "安装成功! 但您还没有下载有效的符号文件，在"符号文件"页面下载后才能生效" 则需要前往"符号"页面下载符号
-
->**请注意，之后可能还会收到类似提示，特别是系统更新后 届时下载新的符号即可**
->
->如果下载失败 则可能需要使用代理，在中国大陆部分地区可能无法访问微软服务器
-
-![image](./Screenshot/013100.png)
-
-</details>
-
-### 卸载
-1. 运行 DWMBlurGlass.exe GUI 程序 并点击卸载.
-2. 手动删除相关剩余文件.
-
-## 语言文件
-我们提供基本的语言 英语和简体中文 如果您愿意帮助我们翻译其他语言，请参阅以下内容，了解语言文件格式.
-1. 首先需要fork并克隆此储存库到本地.
-2. 打开"`Languagefiles`"文件夹 并选择一个现有的语言文件 例如"`zh-CN.xml`" 并复制它.
-3. 重命名此文件为[目标区域代码名称](https://learn.microsoft.com/en-us/windows/win32/intl/locale-names)并使用您喜欢的文本编辑器编辑此xml文档.
-4. 修改第二行的"`local`"字段的值为目标区域代码名称(它应该和文件名一样 但不包括xml后缀).
-5. 可以在"`author`"字段中填写您的名称.
-6. 接下来翻译剩下的字段值(注意不要翻译字段名称) 正确的格式为: `<config>Config</config>` 翻译为 `<config>xxxx</config>`.
-7. 完成后保存文件，并将其复制到 DWMBlurGlass.exe 程序所在文件夹下的 "`data\lang`" 目录中.
-8. 接下来，打开 DWMBlurGlass.exe，测试语言文件是否正常工作，如果不正常，请检查语言代码设置，并检查文件是否符合 xml 格式规范.
-9. 最后，将文件提交到自己fork的仓库，并向项目的主分支发送拉取请求.
-10. 请求通过后，您的文件将随未来的软件更新一起发布.
-
-## 依赖
-* [MiaoUI Lite interface library v2](https://github.com/Maplespe/MiaoUILite)
-* [AcrylicEverywhere](https://github.com/ALTaleX531/AcrylicEverywhere) - CustomBlur方法的上游单独实现，感谢ALTaleX的研究和支持.
-* [minhook](https://github.com/m417z/minhook)
-* [pugixml](https://github.com/zeux/pugixml)
-* [VC_LTL](https://github.com/Chuyu-Team/VC-LTL5)
-* [Windows Implementation Libraries](https://github.com/Microsoft/wil)
+本项目采用 GNU LGPL 第 3 版或更新版本，见 [COPYING.LESSER](COPYING.LESSER) 和 [LICENSE.txt](LICENSE.txt)。保留原作者及第三方的版权和许可声明。依赖项及作者列于 [CREDITS.md](CREDITS.md)。

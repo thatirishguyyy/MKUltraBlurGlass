@@ -1,12 +1,14 @@
 # MKUltraBlurGlass
 
+[English](README.md) · [Deutsch](README_DE.md) · [Español](README_ES.md) · [Français](README_FR.md) · [Italiano](README_IT.md) · [Português (Brasil)](README_PTBR.md) · [Türkçe](README_TR.md) · [Tiếng Việt](README_VI.md) · [简体中文](README_ZH.md)
+
 Windows title-bar effects, based on DWMBlurGlass 2.3.1. This personal maintenance fork adds focused fixes, English documentation, a nice interface, menu-click sounds, and a small uninstaller.
 
 **Created from the original work of Maplespe.** Rendering research and contributions by ALTaleX531 and other upstream contributors made this fork possible. See [credits](CREDITS.md) and the [original project](https://github.com/Maplespe/DWMBlurGlass).
 
 ## Status
 
-Version 0.1.1. Tested on Windows 11 25H2 build 26200.9974: matching symbol download, visible window blur, automatic startup after reboot, menu sound and its toggle, About layout, and install/uninstall/reinstall. Default uninstall preserved all 10 recorded program, settings and symbol files unchanged. These results apply to this configuration; other Windows builds and rendering methods have not been validated.
+Version 0.1.1. Tested on Windows 11 25H2 build 26200.9974. Version 0.1.0 passed symbol download, visible blur, startup after reboot, menu sound, About layout, and install/uninstall/reinstall checks; default uninstall preserved all 10 recorded program, settings and symbol files unchanged. Version 0.1.1 passed update and independent Light/Dark window-color checks; the reboot test has not been repeated specifically for this patch. Other Windows builds and rendering methods have not been fully validated.
 
 Only one download is needed: `MKUltraBlurGlass-0.1.1.zip` includes both the application and `MKUltraBlurGlassUninstall.exe`. The source archive is optional for developers.
 
@@ -34,6 +36,6 @@ Do not enable this fork and the original DWMBlurGlass host at the same time; the
 
 The retained Visual Studio solution/project names reflect the upstream source layout. Their output files are `MKUltraBlurGlass.exe` and `MKUltraBlurGlassExt.dll`.
 
-See [building](docs/BUILDING.md), [maintenance](docs/MAINTAINING.md), [troubleshooting](docs/TROUBLESHOOTING.md), [uninstaller](tools/uninstaller/README.md), and [credits](CREDITS.md). The existing translated READMEs are retained as historical upstream translations.
+See [building](docs/BUILDING.md), [maintenance](docs/MAINTAINING.md), [troubleshooting](docs/TROUBLESHOOTING.md), [uninstaller](tools/uninstaller/README.md), and [credits](CREDITS.md). The linked translated READMEs describe this fork and its current installation steps; detailed maintainer documentation is in English.
 
 This project remains under the GNU Lesser General Public License v3 or later. See COPYING.LESSER and LICENSE.txt, and retained third-party notices.
